@@ -45,6 +45,7 @@ class LoginViewController: UIViewController {
     @objc
     private func didTapLoginButton() {
         let rootTabBarVC = RootTabBarController()
+        print(#function)
         rootTabBarVC.modalPresentationStyle = .fullScreen // 모달 방식을 전체회면으로 설정
         self.present(rootTabBarVC, animated: true, completion: nil) // present로 화면 전환
         
