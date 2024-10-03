@@ -19,10 +19,21 @@ class MyPageViewController: UIViewController {
         self.view = myPageView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationBar()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setButtonActions()
+    }
+    
+    // MARK: - Set NavigationBar
+    private func setNavigationBar() {
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Set Button Actions

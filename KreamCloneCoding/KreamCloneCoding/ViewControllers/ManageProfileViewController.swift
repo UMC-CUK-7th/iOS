@@ -50,6 +50,7 @@ class ManageProfileViewController: UIViewController {
     private func setNavigationController() {
         self.title = "프로필 관리"
         self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.isHidden = false
         
         /*
          네비바 커스텀은 스스로 구글링 하여 공부하는 것을 추천드립니다.
