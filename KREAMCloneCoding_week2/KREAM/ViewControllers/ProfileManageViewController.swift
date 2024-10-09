@@ -1,0 +1,76 @@
+//
+//  ProfileManageViewController.swift
+//  KREAM
+//
+//  Created by 서재민 on 10/6/24.
+//
+
+import UIKit
+
+class ProfileManageViewController: UIViewController {
+    
+    let ProfileManageView = ProfileManageview()
+    
+    override func loadView(){
+        self.view = ProfileManageView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setNavigationController()
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.ProfileManageView.ChangeEmailButton.addTarget(self, action: #selector(didTapChangeEmailButton), for: .touchUpInside)
+        self.ProfileManageView.ChangePasswordButton.addTarget(self, action: #selector(didTapChangePasswordButton), for: .touchUpInside)
+      
+        
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    
+    
+    private func setNavigationController() {
+        self.title = "프로필 관리"
+        self.navigationController?.navigationBar.tintColor = .black
+        let backButtonImage = UIImage(systemName: "arrow.left")
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
+    }
+    
+    @objc
+    private func didTapChangeEmailButton() {
+        if !(ProfileManageView.UserEmailTextField.isEnabled){
+            ProfileManageView.ChangeEmailButton.setTitle("확인", for: .normal)
+            ProfileManageView.UserEmailTextField.isEnabled = true
+            ProfileManageView.UserEmailTextField.becomeFirstResponder()
+        }
+        else{
+            ProfileManageView.ChangeEmailButton.setTitle("변경", for: .normal)
+            ProfileManageView.UserEmailTextField.isEnabled = false
+        }
+        
+    }
+    
+    @objc
+    private func didTapChangePasswordButton() {
+        if !(ProfileManageView.ChangePasswordTextField.isEnabled){
+            ProfileManageView.ChangePasswordButton.setTitle("확인", for: .normal)
+            ProfileManageView.ChangePasswordTextField.isEnabled = true
+            ProfileManageView.ChangePasswordTextField.becomeFirstResponder()
+        }
+        else{
+            ProfileManageView.ChangePasswordButton.setTitle("변경", for: .normal)
+            ProfileManageView.ChangePasswordTextField.isEnabled = false
+        }
+    }
+    
+}
