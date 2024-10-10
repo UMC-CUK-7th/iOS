@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B323F4F22CAB033200D34D23 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B323F4F12CAB033200D34D23 /* SnapKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B323F4292CA5ABD000D34D23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B323F40A2CA5ABCF00D34D23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B323F4112CA5ABCF00D34D23;
+			remoteInfo = iKREAM;
+		};
+		B323F4332CA5ABD000D34D23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B323F40A2CA5ABCF00D34D23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B323F4112CA5ABCF00D34D23;
+			remoteInfo = iKREAM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B323F4122CA5ABCF00D34D23 /* iKREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B323F4282CA5ABD000D34D23 /* iKREAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iKREAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B323F4322CA5ABD000D34D23 /* iKREAMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iKREAMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B323F43A2CA5ABD000D34D23 /* Exceptions for "iKREAM" folder in "iKREAM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = B323F4112CA5ABCF00D34D23 /* iKREAM */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B323F4142CA5ABCF00D34D23 /* iKREAM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B323F43A2CA5ABD000D34D23 /* Exceptions for "iKREAM" folder in "iKREAM" target */,
+			);
+			path = iKREAM;
+			sourceTree = "<group>";
+		};
+		B323F42B2CA5ABD000D34D23 /* iKREAMTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = iKREAMTests;
+			sourceTree = "<group>";
+		};
+		B323F4352CA5ABD000D34D23 /* iKREAMUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = iKREAMUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B323F40F2CA5ABCF00D34D23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B323F4F22CAB033200D34D23 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B323F4252CA5ABD000D34D23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B323F42F2CA5ABD000D34D23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B323F4092CA5ABCF00D34D23 = {
+			isa = PBXGroup;
+			children = (
+				B323F4142CA5ABCF00D34D23 /* iKREAM */,
+				B323F42B2CA5ABD000D34D23 /* iKREAMTests */,
+				B323F4352CA5ABD000D34D23 /* iKREAMUITests */,
+				B323F4132CA5ABCF00D34D23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B323F4132CA5ABCF00D34D23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B323F4122CA5ABCF00D34D23 /* iKREAM.app */,
+				B323F4282CA5ABD000D34D23 /* iKREAMTests.xctest */,
+				B323F4322CA5ABD000D34D23 /* iKREAMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B323F4112CA5ABCF00D34D23 /* iKREAM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B323F43B2CA5ABD000D34D23 /* Build configuration list for PBXNativeTarget "iKREAM" */;
+			buildPhases = (
+				B323F40E2CA5ABCF00D34D23 /* Sources */,
+				B323F40F2CA5ABCF00D34D23 /* Frameworks */,
+				B323F4102CA5ABCF00D34D23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				B323F4142CA5ABCF00D34D23 /* iKREAM */,
+			);
+			name = iKREAM;
+			packageProductDependencies = (
+				B323F4F12CAB033200D34D23 /* SnapKit */,
+			);
+			productName = iKREAM;
+			productReference = B323F4122CA5ABCF00D34D23 /* iKREAM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B323F4272CA5ABD000D34D23 /* iKREAMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B323F4402CA5ABD000D34D23 /* Build configuration list for PBXNativeTarget "iKREAMTests" */;
+			buildPhases = (
+				B323F4242CA5ABD000D34D23 /* Sources */,
+				B323F4252CA5ABD000D34D23 /* Frameworks */,
+				B323F4262CA5ABD000D34D23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B323F42A2CA5ABD000D34D23 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B323F42B2CA5ABD000D34D23 /* iKREAMTests */,
+			);
+			name = iKREAMTests;
+			packageProductDependencies = (
+			);
+			productName = iKREAMTests;
+			productReference = B323F4282CA5ABD000D34D23 /* iKREAMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B323F4312CA5ABD000D34D23 /* iKREAMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B323F4432CA5ABD000D34D23 /* Build configuration list for PBXNativeTarget "iKREAMUITests" */;
+			buildPhases = (
+				B323F42E2CA5ABD000D34D23 /* Sources */,
+				B323F42F2CA5ABD000D34D23 /* Frameworks */,
+				B323F4302CA5ABD000D34D23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B323F4342CA5ABD000D34D23 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				B323F4352CA5ABD000D34D23 /* iKREAMUITests */,
+			);
+			name = iKREAMUITests;
+			packageProductDependencies = (
+			);
+			productName = iKREAMUITests;
+			productReference = B323F4322CA5ABD000D34D23 /* iKREAMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B323F40A2CA5ABCF00D34D23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					B323F4112CA5ABCF00D34D23 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					B323F4272CA5ABD000D34D23 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B323F4112CA5ABCF00D34D23;
+					};
+					B323F4312CA5ABD000D34D23 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = B323F4112CA5ABCF00D34D23;
+					};
+				};
+			};
+			buildConfigurationList = B323F40D2CA5ABCF00D34D23 /* Build configuration list for PBXProject "iKREAM" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B323F4092CA5ABCF00D34D23;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B323F4F02CAB033200D34D23 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B323F4132CA5ABCF00D34D23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B323F4112CA5ABCF00D34D23 /* iKREAM */,
+				B323F4272CA5ABD000D34D23 /* iKREAMTests */,
+				B323F4312CA5ABD000D34D23 /* iKREAMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B323F4102CA5ABCF00D34D23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B323F4262CA5ABD000D34D23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B323F4302CA5ABD000D34D23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B323F40E2CA5ABCF00D34D23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B323F4242CA5ABD000D34D23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B323F42E2CA5ABD000D34D23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B323F42A2CA5ABD000D34D23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B323F4112CA5ABCF00D34D23 /* iKREAM */;
+			targetProxy = B323F4292CA5ABD000D34D23 /* PBXContainerItemProxy */;
+		};
+		B323F4342CA5ABD000D34D23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B323F4112CA5ABCF00D34D23 /* iKREAM */;
+			targetProxy = B323F4332CA5ABD000D34D23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B323F43C2CA5ABD000D34D23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iKREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.band.iKREAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B323F43D2CA5ABD000D34D23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iKREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.band.iKREAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B323F43E2CA5ABD000D34D23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B323F43F2CA5ABD000D34D23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B323F4412CA5ABD000D34D23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.band.iKREAMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iKREAM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iKREAM";
+			};
+			name = Debug;
+		};
+		B323F4422CA5ABD000D34D23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.band.iKREAMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iKREAM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iKREAM";
+			};
+			name = Release;
+		};
+		B323F4442CA5ABD000D34D23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.band.iKREAMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iKREAM;
+			};
+			name = Debug;
+		};
+		B323F4452CA5ABD000D34D23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.band.iKREAMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iKREAM;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B323F40D2CA5ABCF00D34D23 /* Build configuration list for PBXProject "iKREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B323F43E2CA5ABD000D34D23 /* Debug */,
+				B323F43F2CA5ABD000D34D23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B323F43B2CA5ABD000D34D23 /* Build configuration list for PBXNativeTarget "iKREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B323F43C2CA5ABD000D34D23 /* Debug */,
+				B323F43D2CA5ABD000D34D23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B323F4402CA5ABD000D34D23 /* Build configuration list for PBXNativeTarget "iKREAMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B323F4412CA5ABD000D34D23 /* Debug */,
+				B323F4422CA5ABD000D34D23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B323F4432CA5ABD000D34D23 /* Build configuration list for PBXNativeTarget "iKREAMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B323F4442CA5ABD000D34D23 /* Debug */,
+				B323F4452CA5ABD000D34D23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B323F4F02CAB033200D34D23 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B323F4F12CAB033200D34D23 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B323F4F02CAB033200D34D23 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B323F40A2CA5ABCF00D34D23 /* Project object */;
+}
