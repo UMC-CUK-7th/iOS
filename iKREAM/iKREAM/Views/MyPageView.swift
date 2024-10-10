@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class MyPageView: UIView {
-    // MARK: - UI Components
+    // MARK: - UI
     let settingButton: UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "WheelImage"), for: .normal)
@@ -124,7 +124,7 @@ class MyPageView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Set up UI
+    // MARK: - SetupUI
     private func setupUI() {
         self.backgroundColor = .white
         
@@ -138,7 +138,7 @@ class MyPageView: UIView {
         setupConstraints()
     }
     
-    // MARK: - Set up Constraints
+    // MARK: - SetupConstraints
     private func setupConstraints() {
         settingButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(32.5)

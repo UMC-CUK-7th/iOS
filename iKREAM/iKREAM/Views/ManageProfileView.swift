@@ -136,7 +136,7 @@ class ManageProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Set up UI
+    // MARK: - SetupUI
     private func setupUI() {
         self.backgroundColor = .white
         
@@ -156,7 +156,7 @@ class ManageProfileView: UIView {
         profileImageView.layer.masksToBounds = true
     }
     
-    // MARK: - Set up Constraints
+    // MARK: - SetupConstraints
     private func setupConstraints() {
         profileImageView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(52)

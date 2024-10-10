@@ -8,7 +8,7 @@
 import UIKit
 
 class LoginView: UIView {
-    
+    // MARK: - UI
     let logoImageView: UIImageView = {
         let loginImageView = UIImageView() //UIImage 담을 view
         loginImageView.image = UIImage(named: "LogoImage")
@@ -132,24 +132,7 @@ class LoginView: UIView {
         return imageView
     }()
     
-    /*let KakaoButton: UIImageView = {
-        let iv = UIImageView()
-        iv.image = UIImage(named: "KakaoImage")
-        iv.contentMode = .scaleToFill
-        
-        iv.translatesAutoresizingMaskIntoConstraints = false
-        return iv
-    }()
-    
-    let AppleButton: UIImageView = {
-        let iiv = UIImageView()
-        iiv.image = UIImage(named: "AppleImage")
-        iiv.contentMode = .scaleToFill
-        
-        iiv.translatesAutoresizingMaskIntoConstraints = false
-        return iiv
-    }()*/
-    
+    // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -159,6 +142,7 @@ class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - SetupUI
     private func setupUI() {
         self.backgroundColor = .white
         self.addSubview(logoImageView)
@@ -175,6 +159,7 @@ class LoginView: UIView {
         setupConstraints()
     }
     
+    // MARK: - SetupConstraints
     private func setupConstraints() {
         //autolayout 제약
         // logo ImageView
