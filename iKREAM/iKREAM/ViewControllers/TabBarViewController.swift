@@ -9,12 +9,12 @@ import UIKit
 import SnapKit
 
 class RootTabBarController: UITabBarController {
-    // MARK: - Properties
-    let homeViewController = UIViewController() //실제 구현 안되도 됨.(노션기준)
+    // MARK: - Properties //실제 구현 아직은 안되도 됨.(노션기준)
+    let homeViewController = UINavigationController(rootViewController: HomeViewController())
     let styleViewController = UIViewController()
     let shopViewController = UIViewController()
-    let savedViewController = UIViewController()
-    
+    let savedViewController = UINavigationController(rootViewController: SavedViewController())
+
     // navigationController를 심어줘야 함
     let myPageViewController = UINavigationController(rootViewController: MyPageViewController())
     /*
