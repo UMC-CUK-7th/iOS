@@ -136,10 +136,28 @@ class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        
+        // 로그인 버튼에 액션 추가
+        loginButton.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Handle Login
+    @objc private func handleLogin() {
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            print("이메일과 비밀번호를 입력해주세요.")
+            return
+        }
+        
+        // UserDefaults에 저장
+        UserDefaults.standard.set(email, forKey: "userEmail")
+        UserDefaults.standard.set(password, forKey: "userPassword")
+        
+        print("로그인 정보가 저장되었습니다.")
     }
     
     // MARK: - SetupUI
