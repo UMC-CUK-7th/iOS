@@ -32,7 +32,6 @@ class SavedViewController: UIViewController {
         // 데이터의 개수를 기반으로 ttl 라벨 업데이트
         savedView.ttl.text = "전체 \(data.count)개"
         
-        self.view = savedView
     }
 }
 

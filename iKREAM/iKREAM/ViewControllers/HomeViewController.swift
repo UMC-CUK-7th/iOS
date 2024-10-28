@@ -16,6 +16,10 @@ class HomeViewController: UIViewController {
     override func loadView() {
         self.view = homeView  // 인스턴스를 할당
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +96,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
     // 섹션 수 설정
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2 // 2섹션
+        return 1 // 2섹션
     }
 }
-

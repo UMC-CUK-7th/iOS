@@ -16,6 +16,7 @@ class HomeView: UIView {
         $0.setBackgroundImage(UIImage(), for: .highlighted, barMetrics: .default)
         $0.setDividerImage(UIImage(), forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
         $0.selectedSegmentIndex = 0
+        $0.apportionsSegmentWidthsByContent = true
         $0.setTitleTextAttributes(
             [
                 NSAttributedString.Key.foregroundColor: UIColor.black,
@@ -125,13 +126,13 @@ class HomeView: UIView {
         }
         segmentedControl.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(24)
-            make.top.equalToSuperview().inset(107)
+            make.top.equalTo(searchTextField.snp.bottom).offset(16)
             make.width.equalTo(325)
             make.height.equalTo(27)
         }
         // 밑줄의 초기 위치 및 크기 설정
         underLineView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(8)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(5)
             make.width.equalTo(28)
             make.height.equalTo(2) // 밑줄의 두께 설정
             make.leading.equalTo(segmentedControl.snp.leading) // 첫 번째 세그먼트 아래로 위치
@@ -141,15 +142,15 @@ class HomeView: UIView {
             make.centerX.equalToSuperview()
         }
         bannerImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(134)
-            make.width.equalTo(374)
+            make.top.equalTo(segmentedControl.snp.bottom).offset(16)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.height.equalTo(336)
         }
         recommendCollectionView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(16)
-            make.top.equalTo(segmentedControl.snp.bottom).offset(356)
-            make.bottom.equalToSuperview().inset(138)
-            make.width.equalTo(341)
+            make.leading.equalToSuperview().inset(18)
+            make.top.equalTo(bannerImageView.snp.bottom).offset(20)
+            make.width.equalTo(344)
             make.height.equalTo(182)
         }
     }
@@ -185,14 +186,15 @@ class HomeView: UIView {
     // MARK: - SetupConstraints
     private func setupConstraints() {
         searchTextField.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(16)
-            make.top.equalToSuperview().inset(51)
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.width.equalTo(303)
             make.height.equalTo(40)
         }
+        
         bellButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(334)
-            make.top.equalToSuperview().inset(59)
+            make.leading.equalTo(searchTextField.snp.trailing).offset(16)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
             make.width.height.equalTo(24)
 
         }
