@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DBDEB8652CB3E8570014157F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DBDEB8642CB3E8570014157F /* SnapKit */; };
+		DBF4AC1E2CC7A3D400DE166C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */; };
+		DBF4AC212CC7ACF300DE166C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4AC202CC7ACF300DE166C /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,7 @@
 		DBDEB81C2CB3E4C70014157F /* KREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDEB8322CB3E4C90014157F /* KREAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KREAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBDEB83C2CB3E4C90014157F /* KREAMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KREAMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -70,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBDEB8652CB3E8570014157F /* SnapKit in Frameworks */,
+				DBF4AC212CC7ACF300DE166C /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +97,7 @@
 		DBDEB8132CB3E4C70014157F = {
 			isa = PBXGroup;
 			children = (
+				DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */,
 				DBDEB81E2CB3E4C70014157F /* KREAM */,
 				DBDEB8352CB3E4C90014157F /* KREAMTests */,
 				DBDEB83F2CB3E4C90014157F /* KREAMUITests */,
@@ -131,6 +136,7 @@
 			name = KREAM;
 			packageProductDependencies = (
 				DBDEB8642CB3E8570014157F /* SnapKit */,
+				DBF4AC202CC7ACF300DE166C /* Then */,
 			);
 			productName = KREAM;
 			productReference = DBDEB81C2CB3E4C70014157F /* KREAM.app */;
@@ -216,6 +222,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DBDEB81D2CB3E4C70014157F /* Products */;
@@ -234,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF4AC1E2CC7A3D400DE166C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +588,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -587,6 +603,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DBF4AC202CC7ACF300DE166C /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

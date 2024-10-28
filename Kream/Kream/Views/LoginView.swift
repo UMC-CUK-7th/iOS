@@ -41,8 +41,7 @@ class LoginView: UIView {
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.masksToBounds = true
         //텍스트 필드 왼쪽 공백 (참고)
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
-        tf.leftView = leftView
+        tf.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         tf.leftViewMode = .always
         
         tf.translatesAutoresizingMaskIntoConstraints = false
@@ -72,8 +71,7 @@ class LoginView: UIView {
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.masksToBounds = true
         
-        let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
-        tf.leftView = leftView
+        tf.leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 16.0, height: 0.0))
         tf.leftViewMode = .always
         
         tf.translatesAutoresizingMaskIntoConstraints = false

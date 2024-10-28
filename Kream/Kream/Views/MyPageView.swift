@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class MyPageView: UIView {
-    
     // 프로필 사진
     let profileImage: UIImageView = {
         let iv = UIImageView()
@@ -108,79 +107,78 @@ class MyPageView: UIView {
     }
     
     
-    //MARK: UI setup
+    //MARK: - UI setup
     private func setupUI(){
         self.backgroundColor = .white
         
         // 프로필 사진
         self.addSubview(profileImage)
-        profileImage.snp.makeConstraints{make in
-            make.top.equalToSuperview().offset(126)
-            make.leading.equalToSuperview().offset(32.5)
-            make.height.width.equalTo(90)
+        profileImage.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(126)
+            $0.leading.equalToSuperview().offset(32.5)
+            $0.height.width.equalTo(90)
         }
         
         // 프로필 이름
         self.addSubview(userName)
-        userName.snp.makeConstraints{make in
-            make.top.equalToSuperview().offset(147)
-            make.leading.equalTo(profileImage.snp.trailing).offset(16)
-            make.height.equalTo(23)
+        userName.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(147)
+            $0.leading.equalTo(profileImage.snp.trailing).offset(16)
+            $0.height.equalTo(23)
         }
         
         // 팔로워
         self.addSubview(userFollower)
-        userFollower.snp.makeConstraints{make in
-            make.top.equalTo(userName).offset(23+6)
-            make.leading.equalTo(userName)
-            make.height.equalTo(19)
+        userFollower.snp.makeConstraints{
+            $0.top.equalTo(userName).offset(23+6)
+            $0.leading.equalTo(userName)
+            $0.height.equalTo(19)
         }
         
         // 팔로잉
         self.addSubview(userFollowing)
-        userFollowing.snp.makeConstraints{make in
-            make.top.equalTo(userFollower)
-            make.leading.equalTo(userFollower.snp.trailing).offset(8)
-            make.height.equalTo(19)
+        userFollowing.snp.makeConstraints{
+            $0.top.equalTo(userFollower)
+            $0.leading.equalTo(userFollower.snp.trailing).offset(8)
+            $0.height.equalTo(19)
         }
         
         // 설정버튼
         self.addSubview(setupButton)
-        setupButton.snp.makeConstraints{make in
-            make.top.equalToSuperview().offset(75)
-            make.leading.equalToSuperview().offset(32.5)
-            make.trailing.equalToSuperview().inset(333.5)
-            make.height.width.equalTo(25)
+        setupButton.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(75)
+            $0.leading.equalToSuperview().offset(32.5)
+            $0.trailing.equalToSuperview().inset(333.5)
+            $0.height.width.equalTo(25)
         }
         
         // 카메라버튼
         self.addSubview(cameraButton)
-        cameraButton.snp.makeConstraints{make in
-            make.top.equalTo(setupButton)
-            make.leading.equalTo(setupButton.snp.trailing).offset(277)
-            //make.trailing.equalToSuperview().inset(33.5)
-            make.height.width.equalTo(25)
+        cameraButton.snp.makeConstraints{
+            $0.top.equalTo(setupButton)
+            $0.leading.equalTo(setupButton.snp.trailing).offset(277)
+            $0.height.width.equalTo(25)
         }
         
         
         // 프로필 관리 버튼
         self.addSubview(editProfileButton)
-        editProfileButton.snp.makeConstraints{make in
-            make.top.equalTo(profileImage.snp.bottom).offset(26)
-            make.leading.equalToSuperview().offset(32.5)
-            make.trailing.equalToSuperview().inset(203.5)
-            make.height.equalTo(26)
-            make.width.equalTo(157)
+        editProfileButton.snp.makeConstraints{
+            $0.top.equalTo(profileImage.snp.bottom).offset(26)
+            $0.leading.equalToSuperview().offset(32.5)
+            $0.trailing.equalToSuperview().inset(203.5)
+            $0.height.equalTo(26)
+            $0.width.equalTo(157)
         }
         
         // 프로필 공유 버튼
         self.addSubview(shareProfileButton)
-        shareProfileButton.snp.makeConstraints{make in
-            make.top.equalTo(editProfileButton)
-            make.leading.equalTo(editProfileButton.snp.trailing).offset(14)
-            make.trailing.equalToSuperview().inset(32.5)
-            make.height.equalTo(26)
-            make.width.equalTo(157)
+        shareProfileButton.snp.makeConstraints{
+            $0.top.equalTo(editProfileButton)
+            $0.leading.equalTo(editProfileButton.snp.trailing).offset(14)
+            $0.trailing.equalToSuperview().inset(32.5)
+            $0.height.equalTo(26)
+            $0.width.equalTo(157)
         }
         
     }

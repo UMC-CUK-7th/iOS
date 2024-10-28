@@ -28,6 +28,8 @@ class MyPageViewController: UIViewController {
     private func editProfileButtonDidTap(){
         let ep = EditProfileViewController()
         navigationController?.pushViewController(ep, animated: true)
+        // EditProfileViewController에 이미지 전달
+        ep.profileImage = myPageView.profileImage.image
     }
     
 }

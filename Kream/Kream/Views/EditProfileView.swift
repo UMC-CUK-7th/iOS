@@ -10,15 +10,17 @@ import UIKit
 import SnapKit
 
 class EditProfileView: UIView {
+    // 로그인 모델 인스턴스 생성
+    let loginModel = LoginModel()
     
     // 프로필 사진
     let profileImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "SesameImage")
+        iv.image = UIImage(named: "image 10.png")
         iv.contentMode = .scaleAspectFill // 이미지 비율 유지
         iv.clipsToBounds = true
         return iv
-        }()
+    }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -48,7 +50,9 @@ class EditProfileView: UIView {
     // 유저 이메일 TextField
     lazy var emailTextField: UITextField = {
         let et = UITextField()
-        et.attributedPlaceholder = NSAttributedString(string: "example@naver.com", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        let userID = loginModel.loadUserID() ?? "이메일" // 기본 값 설정
+        
+        et.attributedPlaceholder = NSAttributedString(string: userID, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         et.font = .systemFont(ofSize: 14, weight: .regular)
         et.layer.cornerRadius = 10
         et.layer.borderWidth = 1
@@ -74,13 +78,14 @@ class EditProfileView: UIView {
     // 유저 비밀번호 TextField
     lazy var pwTextField: UITextField = {
         let pt = UITextField()
-        pt.attributedPlaceholder = NSAttributedString(string: "************", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
+        let userPWD = loginModel.loadUserPWD() ?? "비밀번호" // 기본 값 설정
+        pt.text = userPWD // 데이터 저장
         pt.font = .systemFont(ofSize: 14, weight: .regular)
         pt.layer.cornerRadius = 10
         pt.layer.borderWidth = 1
         pt.layer.borderColor = UIColor.lightGray.cgColor
         pt.layer.masksToBounds = true
-        
+        pt.isSecureTextEntry = true
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 11, height: 11))
         pt.leftView = leftView
         pt.leftViewMode = .always
@@ -117,87 +122,87 @@ class EditProfileView: UIView {
     
     override init(frame: CGRect){
         super.init(frame: frame)
+        
         setupUI()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: UI setup
+    //MARK: -UI setup
     private func setupUI(){
         self.backgroundColor = .white
         
         // 프로필 사진
         self.addSubview(profileImage)
-        profileImage.snp.makeConstraints{make in
-            make.top.equalToSuperview().offset(144)
-            make.leading.equalToSuperview().offset(151)
-            make.height.width.equalTo(90)
+        profileImage.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(144)
+            $0.leading.equalToSuperview().offset(151)
+            $0.height.width.equalTo(90)
         }
         
         // 프로필 정보 Label
         self.addSubview(infoProfileLabel)
-        infoProfileLabel.snp.makeConstraints{make in
-            make.top.equalTo(profileImage.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(27)
-            //make.trailing.equalToSuperview().inset(17)
-            make.height.equalTo(29)
+        infoProfileLabel.snp.makeConstraints{
+            $0.top.equalTo(profileImage.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(27)
+            $0.height.equalTo(29)
         }
         
         // 유저 이메일 Label
         self.addSubview(userEmailLabel)
-        userEmailLabel.snp.makeConstraints{make in
-            make.top.equalTo(infoProfileLabel.snp.bottom).offset(23)
-            make.leading.equalTo(infoProfileLabel)
-            make.height.equalTo(22)
+        userEmailLabel.snp.makeConstraints{
+            $0.top.equalTo(infoProfileLabel.snp.bottom).offset(23)
+            $0.leading.equalTo(infoProfileLabel)
+            $0.height.equalTo(22)
         }
         
         // 유저 비밀번호 Label
         self.addSubview(userPwLabel)
-        userPwLabel.snp.makeConstraints{make in
-            make.top.equalTo(userEmailLabel.snp.bottom).offset(59)
-            make.leading.equalTo(infoProfileLabel)
-            make.height.equalTo(22)
+        userPwLabel.snp.makeConstraints{
+            $0.top.equalTo(userEmailLabel.snp.bottom).offset(59)
+            $0.leading.equalTo(infoProfileLabel)
+            $0.height.equalTo(22)
         }
         
         // 유저 이메일 TextField
         self.addSubview(emailTextField)
-        emailTextField.snp.makeConstraints{make in
-            make.top.equalTo(userEmailLabel.snp.bottom).offset(4)
-            make.leading.equalTo(infoProfileLabel)
-            make.trailing.equalToSuperview().inset(84)
-            make.height.equalTo(32)
-            make.width.equalTo(282)
+        emailTextField.snp.makeConstraints{
+            $0.top.equalTo(userEmailLabel.snp.bottom).offset(4)
+            $0.leading.equalTo(infoProfileLabel)
+            $0.trailing.equalToSuperview().inset(84)
+            $0.height.equalTo(32)
+            $0.width.equalTo(282)
         }
         
         // 유저 비밀번호 TextField
         self.addSubview(pwTextField)
-        pwTextField.snp.makeConstraints{make in
-            make.top.equalTo(userPwLabel.snp.bottom).offset(4)
-            make.leading.equalTo(infoProfileLabel)
-            make.trailing.equalToSuperview().inset(84)
-            make.height.equalTo(32)
-            make.width.equalTo(282)
+        pwTextField.snp.makeConstraints{
+            $0.top.equalTo(userPwLabel.snp.bottom).offset(4)
+            $0.leading.equalTo(infoProfileLabel)
+            $0.trailing.equalToSuperview().inset(84)
+            $0.height.equalTo(32)
+            $0.width.equalTo(282)
         }
         
         // 이메일 변경 Button
         self.addSubview(emailButton)
-        emailButton.snp.makeConstraints{make in
-            make.top.equalTo(emailTextField)
-            make.leading.equalTo(emailTextField.snp.trailing).offset(9)
-            make.trailing.equalToSuperview().inset(17)
-            make.height.equalTo(32)
-            make.width.equalTo(58)
+        emailButton.snp.makeConstraints{
+            $0.top.equalTo(emailTextField)
+            $0.leading.equalTo(emailTextField.snp.trailing).offset(9)
+            $0.trailing.equalToSuperview().inset(17)
+            $0.height.equalTo(32)
+            $0.width.equalTo(58)
         }
         
         // 비밀번호 변경 Button
         self.addSubview(pwButton)
-        pwButton.snp.makeConstraints{make in
-            make.top.equalTo(pwTextField)
-            make.leading.equalTo(emailTextField.snp.trailing).offset(9)
-            make.trailing.equalToSuperview().inset(17)
-            make.height.equalTo(32)
-            make.width.equalTo(58)
+        pwButton.snp.makeConstraints{
+            $0.top.equalTo(pwTextField)
+            $0.leading.equalTo(emailTextField.snp.trailing).offset(9)
+            $0.trailing.equalToSuperview().inset(17)
+            $0.height.equalTo(32)
+            $0.width.equalTo(58)
         }
     }
 }
