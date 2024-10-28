@@ -100,9 +100,4 @@ extension HomeViewController: UICollectionViewDataSource {
     
 }
 
-// MARK: - UITableView Delegate
-extension HomeViewController: UICollectionViewDelegate {
-    func setupDelgate() {
-        homeView.homeCollectionView.dataSource = self
-    }
-}
+
