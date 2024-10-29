@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 struct LoginModel {
     // id와 password를 저장하는 변수 선언
     var id: String
     var pwd: String
 }
+
+

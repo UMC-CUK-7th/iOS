@@ -12,7 +12,7 @@ class ManageProfileView: UIView {
     // MARK: - UI Components
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "profileImage")
+        imageView.image = UIImage(named: "padding")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.borderWidth = 1
         return imageView
@@ -130,16 +130,26 @@ class ManageProfileView: UIView {
         super.init(frame: frame)
         
         setupUI()
+        loadUserData() // UserDefaults에서 데이터 로드
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Load User Data
+    private func loadUserData() {
+        let savedEmail = UserDefaults.standard.string(forKey: "userEmail") ?? ""
+        let savedPassword = UserDefaults.standard.string(forKey: "userPassword") ?? ""
+        emailTextField.text = savedEmail
+        passwordTextField.text = savedPassword
+    }
+    
     // MARK: - SetupUI
     private func setupUI() {
         self.backgroundColor = .white
         
+        // UI 컴포넌트 추가
         self.addSubview(profileImageView)
         self.addSubview(profileInfoLabel)
         self.addSubview(emailLabel)
