@@ -14,6 +14,8 @@ struct HomeModel {
     let homemodelName: String
 }
 
+
+
 extension HomeModel {
     static func dummy() -> [HomeModel] {
         return [
@@ -26,10 +28,8 @@ extension HomeModel {
             HomeModel(homemodelImage: .yunsea, homemodelName: "윤세24FW"),
             HomeModel(homemodelImage: .best, homemodelName: "올해의 베스트"),
             HomeModel(homemodelImage: .benefit, homemodelName: "10월 베네핏"),
-            HomeModel(homemodelImage: .acene, homemodelName: "아크네 선물"),
-
+            HomeModel(homemodelImage: .acene, homemodelName: "아크네 선물")
         ]
-        
     }
-
 }
+
