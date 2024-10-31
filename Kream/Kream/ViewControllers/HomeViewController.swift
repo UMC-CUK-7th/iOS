@@ -13,8 +13,12 @@ class HomeViewController: UIViewController {
     private lazy var homeView: HomeView = {
         let view = HomeView()
         view.homeCollectionView.dataSource = self // 데이터 바인딩
+        view.productCollectionView.dataSource = self
+        view.challengeCollectionView.dataSource = self
         return view
     }()
+    
+    
     
     override func loadView() {
         self.view = homeView
@@ -56,21 +60,27 @@ class HomeViewController: UIViewController {
         case 0:
             homeView.centerImage.isHidden = false
             homeView.homeCollectionView.isHidden = false
+            homeView.contentView.isHidden = false
         case 1:
             homeView.centerImage.isHidden = true
             homeView.homeCollectionView.isHidden = true
+            homeView.contentView.isHidden = true
         case 2:
             homeView.centerImage.isHidden = true
             homeView.homeCollectionView.isHidden = true
+            homeView.contentView.isHidden = true
         case 3:
             homeView.centerImage.isHidden = true
             homeView.homeCollectionView.isHidden = true
+            homeView.contentView.isHidden = true
         case 4:
             homeView.centerImage.isHidden = true
             homeView.homeCollectionView.isHidden = true
+            homeView.contentView.isHidden = true
         case 5:
             homeView.centerImage.isHidden = true
             homeView.homeCollectionView.isHidden = true
+            homeView.contentView.isHidden = true
         default:
             break
         }
@@ -78,26 +88,72 @@ class HomeViewController: UIViewController {
     
 }
 
-// MARK: - UITableView DataSource
+// MARK: - UICollectionView DataSource
 extension HomeViewController: UICollectionViewDataSource {
+    
+    // numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HomeModel.dummy().count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: HomeCollectionViewCell.identifier,
-            for: indexPath
-        ) as? HomeCollectionViewCell else {
-            return UICollectionViewCell()
+        if collectionView == homeView.homeCollectionView {  // homeCollectionView는 HomeModel의 더미데이터
+            return HomeModel.dummy().count
+        } else if collectionView == homeView.productCollectionView { // productCollectionView는 ProductModel의 더미데이터
+            return ProductModel.dummy().count
+        } else if collectionView == homeView.challengeCollectionView {
+            return ChallengeModel.dummy().count
         }
-        
-        let list = HomeModel.dummy()
-        cell.collectionImage.image = list[indexPath.row].image
-        cell.titleLabel.text = list[indexPath.row].name
-        
-        return cell
+        return 0
     }
     
+    // cellForItemAt
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        // homeCollectionView
+        if collectionView == homeView.homeCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: HomeCollectionViewCell.identifier,
+                for: indexPath
+            ) as? HomeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let list = HomeModel.dummy()
+            cell.collectionImage.image = list[indexPath.row].image
+            cell.titleLabel.text = list[indexPath.row].name
+            return cell
+            
+        // productCollectionView
+        } else if collectionView == homeView.productCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ProductCollectionViewCell.identifier,
+                for: indexPath
+            ) as? ProductCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let list = ProductModel.dummy()
+            cell.productImage.image = list[indexPath.row].image
+            cell.titleLabel.text = list[indexPath.row].name
+            cell.infoLabel.text = list[indexPath.row].info
+            cell.priceLabel.text = list[indexPath.row].price
+            cell.countLabel.text = list[indexPath.row].label
+            return cell
+            
+        // challengeCollectionView
+        } else if collectionView == homeView.challengeCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ChallengeCollectionViewCell.identifier,
+                for: indexPath
+            ) as? ChallengeCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            let list = ChallengeModel.dummy()
+            cell.productImage.image = list[indexPath.row].image
+            cell.titleLabel.text = list[indexPath.row].name
+            return cell
+        }
+        
+        return UICollectionViewCell()
+    }
 }
 
 
+//#Preview {
+//    HomeViewController()
+//}
