@@ -25,6 +25,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         
         setupAction()
         setupDelegate()
+        setupSearchTextFieldTapGesture()
     }
     
     private func setupAction() {
@@ -42,6 +43,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate {
         homeView.droppedCollectionView.delegate = self // 드롭된 컬렉션 뷰 델리게이트 설정
         homeView.winterCollectionView.dataSource = self
         homeView.winterCollectionView.delegate = self
+    }
+
+    // 검색창 탭 제스처 설정
+    private func setupSearchTextFieldTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchTextFieldTapped))
+        homeView.searchTextField.addGestureRecognizer(tapGesture)
+        homeView.searchTextField.isUserInteractionEnabled = true // 사용자 상호작용 활성화
+    }
+    
+    @objc
+    private func searchTextFieldTapped() {
+        // SearchViewController로 전환
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     @objc
@@ -126,9 +141,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == homeView.recommendCollectionView {
             return CGSize(width: 61, height: 81)
-        } else if collectionView == homeView.droppedCollectionView { // 드롭된 셀 크기 설정
-            return CGSize(width: 142, height: 242)
-        } else if collectionView == homeView.winterCollectionView { // Winter 셀 크기 설정
+        } else if collectionView == homeView.droppedCollectionView {
+            return CGSize(width: 142, height: 244)
+        } else if collectionView == homeView.winterCollectionView {
             return CGSize(width: 126, height: 168)
         }
         return CGSize.zero

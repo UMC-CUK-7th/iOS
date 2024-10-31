@@ -242,7 +242,7 @@ class HomeView: UIView {
         droppedLabel.snp.makeConstraints { make in
             make.top.equalTo(recommendCollectionView.snp.bottom).offset(20)
             make.leading.equalToSuperview().inset(16)
-            make.height.equalTo(20)
+
         }
         releaseLabel.snp.makeConstraints { make in
             make.top.equalTo(droppedLabel.snp.bottom).offset(5)
@@ -252,7 +252,7 @@ class HomeView: UIView {
         droppedCollectionView.snp.makeConstraints { make in
             make.top.equalTo(releaseLabel.snp.bottom).offset(14)
             make.leading.equalToSuperview().inset(16)
-            make.width.equalTo(444)
+            make.width.equalTo(442)
             make.height.equalTo(244)
             //make.bottom.equalToSuperview().offset(-20)
         }

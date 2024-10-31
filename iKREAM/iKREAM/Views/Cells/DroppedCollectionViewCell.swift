@@ -42,12 +42,16 @@ class DroppedCollectionViewCell: UICollectionViewCell {
     // 설명 텍스트
     let descriptionLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 12, weight: .regular)
+        $0.numberOfLines = 0
+        $0.textAlignment = .left
         $0.textColor = .gray
     }
     
     // 가격 텍스트
     let priceLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 13, weight: .bold)
+        $0.numberOfLines = 0
+        $0.textAlignment = .left
         $0.textColor = .black
     }
     
@@ -93,8 +97,8 @@ class DroppedCollectionViewCell: UICollectionViewCell {
         bottomRightImageView.snp.makeConstraints {
             $0.bottom.equalTo(imageView).offset(-8)
             $0.trailing.equalTo(imageView).offset(-9)
-            $0.width.equalTo(44)
-            $0.height.equalTo(11)
+            $0.width.equalTo(22)
+            $0.height.equalTo(20)
         }
         
         // 제목 텍스트 제약 설정
@@ -117,7 +121,7 @@ class DroppedCollectionViewCell: UICollectionViewCell {
         priceLabel.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(12)
             $0.leading.equalToSuperview().offset(5)
-            $0.width.equalTo(65)
+            $0.width.equalTo(69)
             $0.height.equalTo(18)
         }
         
