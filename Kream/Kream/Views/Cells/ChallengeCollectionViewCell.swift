@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class ChallengeCollectionViewCell: UICollectionViewCell {
     static let identifier = "ChallengeCollectionViewCell"

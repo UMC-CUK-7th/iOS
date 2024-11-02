@@ -116,12 +116,11 @@ class ProductCollectionViewCell: UICollectionViewCell {
         infoLabel.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom).offset(3)
             $0.horizontalEdges.equalToSuperview().offset(4)
-            $0.height.equalTo(14)
         }
         
         // 가격
         priceLabel.snp.makeConstraints{
-            $0.top.equalTo(infoLabel.snp.bottom).offset(26)
+            $0.top.equalTo(infoLabel.snp.top).offset(26+14)
             $0.horizontalEdges.equalToSuperview().offset(4)
             $0.height.equalTo(16)
         }
