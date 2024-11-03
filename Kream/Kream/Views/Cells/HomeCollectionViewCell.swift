@@ -23,7 +23,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         $0.font = .systemFont(ofSize: 11.5, weight: .light)
         $0.textColor = .black
         $0.textAlignment = .center
-        $0.text = "추천상품"
     }
     
     override init (frame: CGRect) {
@@ -48,7 +47,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     private func setupConstraints(){
         // 셀 이미지
         collectionImage.snp.makeConstraints{
-            $0.top.horizontalEdges.equalToSuperview()
+            $0.top.equalToSuperview()
             $0.height.width.equalTo(61)
             $0.centerX.equalToSuperview()
         }

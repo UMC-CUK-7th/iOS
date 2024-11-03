@@ -149,7 +149,6 @@ class SavedCell: UITableViewCell {
             $0.top.equalTo(savedTitle.snp.bottom).offset(5)
             $0.leading.equalTo(savedImageView.snp.trailing).offset(13)
             $0.trailing.equalToSuperview().inset(142)
-            //$0.width.equalTo(153)
         }
     
     }

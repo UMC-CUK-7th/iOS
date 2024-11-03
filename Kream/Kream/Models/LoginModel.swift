@@ -7,16 +7,9 @@
 
 import Foundation
 
-/*struct LoginUser {
- var id: String
- var pwd: String
- 
- }*/
 
 class LoginModel {
     private let userIpnut = UserDefaults.standard
-    // private let loginPWD = UserDefaults.standard
-    //private let userTextKey: String = "loginID"
     
     // 유저가 입력한 텍스트 값을 UserDefaults에 저장.
     public func saveUserID(_ text: String) {

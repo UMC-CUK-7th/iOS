@@ -25,8 +25,7 @@ extension HomeModel {
             HomeModel(image: .homeCell7, name: "윤세 24AW"),
             HomeModel(image: .homeCell8, name: "올해의 베스트"),
             HomeModel(image: .homeCell9, name: "10월 베네핏"),
-            HomeModel(image: .homeCell10, name: "아크네 선물")
+            HomeModel(image: .homeCell10, name: "아크네 선물"),
         ]
     }
 }
-    
