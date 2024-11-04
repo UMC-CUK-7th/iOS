@@ -157,23 +157,28 @@ class HomeView: UIView {
         self.backgroundColor = .white
         self.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        contentView.addSubview(searchTextField)
-        contentView.addSubview(bellButton)
-        contentView.addSubview(segmentedControl)
-        contentView.addSubview(underLineView)
-        contentView.addSubview(emptyLable)
-        contentView.addSubview(bannerImageView)
-        contentView.addSubview(recommendCollectionView)
-        contentView.addSubview(droppedLabel)
-        contentView.addSubview(releaseLabel)
-        contentView.addSubview(droppedCollectionView)
-        contentView.addSubview(winterLabel)
-        contentView.addSubview(challengeLabel)
-        contentView.addSubview(winterCollectionView)
+        
+        // MARK: - addsubviews 일괄 추가 / UIView+ 파일 활용
+        contentView.addSubviews(
+            searchTextField,
+            bellButton,
+            segmentedControl,
+            underLineView,
+            emptyLable,
+            bannerImageView,
+            recommendCollectionView,
+            droppedLabel,
+            releaseLabel,
+            droppedCollectionView,
+            winterLabel,
+            challengeLabel,
+            winterCollectionView
+        )
         
         setupConstraints()
         setupSegmentedControlAction()
     }
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
