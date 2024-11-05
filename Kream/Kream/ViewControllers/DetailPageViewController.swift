@@ -9,7 +9,11 @@ import UIKit
 
 class DetailPageViewController: UIViewController {
     
-    let detailPageView = DetailPageView()
+    private lazy var detailPageView: DetailPageView = {
+        let view = DetailPageView()
+        view.detailPageCollectionView.dataSource = self
+        return view
+    }()
     
     override func loadView() {
         self.view = detailPageView
@@ -35,4 +39,18 @@ class DetailPageViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = "" //버튼 타이틀 없음
     }
     
+}
+
+//MARK: - UICollectionView DataSource
+extension DetailPageViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return DetailPageModel.dummy().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailPageCollectionViewCell.identifier, for: indexPath) as? DetailPageCollectionViewCell else { return UICollectionViewCell() }
+        let list = DetailPageModel.dummy()
+        cell.productCellImage.image = list[indexPath.row].image
+        return cell
+    }
 }

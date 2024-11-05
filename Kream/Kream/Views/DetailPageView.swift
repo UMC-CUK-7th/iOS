@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class DetailPageView: UIView {
 
@@ -168,6 +169,17 @@ class DetailPageView: UIView {
         return label
     }()
     
+    // 아더컬러 UICollectionView
+    let detailPageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.estimatedItemSize = .init(width: 53, height: 53)
+        $0.minimumInteritemSpacing = 8
+        $0.scrollDirection = .horizontal}).then{
+            $0.backgroundColor = .clear
+            $0.isScrollEnabled = true
+            $0.showsHorizontalScrollIndicator = false
+            $0.register(DetailPageCollectionViewCell.self, forCellWithReuseIdentifier: DetailPageCollectionViewCell.identifier)
+        }
+    
     //MARK: - setup UI
     private func setupUI(){
         self.addSubview(productImage)
@@ -180,6 +192,7 @@ class DetailPageView: UIView {
         self.addSubview(savedLabel)
         self.addSubview(redButton)
         self.addSubview(greenButton)
+        self.addSubview(detailPageCollectionView)
         redButton.addSubview(buyLabel)
         redButton.addSubview(buyPriceLabel)
         redButton.addSubview(textLabel2)
@@ -310,6 +323,15 @@ class DetailPageView: UIView {
             $0.top.equalTo(buyPriceLabel.snp.bottom).offset(2)
             $0.leading.equalTo(sellLabel.snp.trailing).offset(21)
             $0.height.equalTo(12)
+        }
+        
+        // 아더컬러 UICollectionView
+        detailPageCollectionView.snp.makeConstraints{
+            $0.top.equalTo(productImage.snp.bottom).offset(20)
+            $0.leading.equalToSuperview().offset(15) // 그냥 내 마음대로^_^
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(53)
+            $0.width.equalTo(1000)
         }
         
     }
