@@ -14,6 +14,7 @@ class SavedViewController: UIViewController {
     private lazy var savedView: SavedView = {
         let view = SavedView()
         view.savedTableView.dataSource = self
+        view.savedTableView.delegate = self
         return view
     }()
     
@@ -49,5 +50,12 @@ extension SavedViewController: UITableViewDelegate {
         let cellHieght: CGFloat = 100
         return cellHieght
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //셀이 선택됐을 때
+            let detailViewController = DetailPageViewController()
+            detailViewController.hidesBottomBarWhenPushed = true // 탭 바 숨김 설정
+            navigationController?.pushViewController(detailViewController, animated: true) // 화면 전환 (Navigation)
+            tableView.deselectRow(at: indexPath, animated: true) // 선택 셀 자동해제
+        }
 }
 
