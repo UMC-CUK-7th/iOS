@@ -286,22 +286,38 @@ class HomeView: UIView {
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
         let leadingOffset = CGFloat(sender.selectedSegmentIndex) * segmentWidth
-        
+
+        // 밑줄 이동 애니메이션
         UIView.animate(withDuration: 0.3) {
             self.underLineView.snp.updateConstraints { make in
                 make.leading.equalTo(self.segmentedControl.snp.leading).offset(leadingOffset)
             }
             self.layoutIfNeeded()
         }
-        //각 세그먼트 별 눌렀을때
+
+        // 각 세그먼트에 따라 뷰 표시/숨기기 설정
         if sender.selectedSegmentIndex == 0 {
+            // 추천 세그먼트 선택 시, 모든 뷰 표시
             emptyLable.isHidden = true
             bannerImageView.isHidden = false
             recommendCollectionView.isHidden = false
+            droppedLabel.isHidden = false
+            releaseLabel.isHidden = false
+            droppedCollectionView.isHidden = false
+            winterLabel.isHidden = false
+            challengeLabel.isHidden = false
+            winterCollectionView.isHidden = false
         } else {
+            // 다른 세그먼트 선택 시, 추천 관련 뷰 숨기기
             emptyLable.isHidden = false
             bannerImageView.isHidden = true
             recommendCollectionView.isHidden = true
+            droppedLabel.isHidden = true
+            releaseLabel.isHidden = true
+            droppedCollectionView.isHidden = true
+            winterLabel.isHidden = true
+            challengeLabel.isHidden = true
+            winterCollectionView.isHidden = true
         }
     }
 }

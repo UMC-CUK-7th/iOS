@@ -52,6 +52,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     @objc private func searchTextFieldTapped() {
         let searchViewController = SearchViewController()
+        searchViewController.hidesBottomBarWhenPushed = true // 탭 바 숨기기기 위한 코드 추가.
         navigationController?.pushViewController(searchViewController, animated: true)
     }
     
