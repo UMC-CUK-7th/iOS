@@ -32,7 +32,10 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
 
         // 현재 뷰 컨트롤러의 네비게이션 아이템에 커스텀 버튼 설정
         navigationItem.leftBarButtonItem = backButton
+        // 구매 버튼 액션 추가
+        searchView.buyButton.addTarget(self, action: #selector(didTapBuyButton), for: .touchUpInside)
         setupDelegate()
+    
     }
     
     private func setupDelegate() {
@@ -43,6 +46,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegateFlowLayout
     // 뒤로가기 버튼을 눌렀을 때 동작
     @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    // 구매 버튼 클릭 시 호출되는 함수
+    @objc private func didTapBuyButton() {
+        let modalVC = SellViewController() // 모달로 표시할 뷰 컨트롤러
+        modalVC.modalPresentationStyle = .pageSheet // 시트 방식으로 표시
+        present(modalVC, animated: true, completion: nil) // 모달 표시
     }
     
     // 이미지를 특정 크기로 리사이즈하는 함수

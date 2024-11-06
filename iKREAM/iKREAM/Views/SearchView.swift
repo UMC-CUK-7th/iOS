@@ -10,7 +10,7 @@ import SnapKit
 import Then
 
 class SearchView: UIView {
-
+    
     let jumperImageView: UIImageView = {
         let jv = UIImageView()
         jv.image = UIImage(named: "matinkim")
@@ -110,6 +110,7 @@ class SearchView: UIView {
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.contentHorizontalAlignment = .left
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0) // 공백위한.
+        
         button.layer.cornerRadius = 8
         return button
     }()
@@ -159,6 +160,7 @@ class SearchView: UIView {
         
         setupConstraints()
     }
+    
     
     // MARK: - SetupConstraints
     private func setupConstraints() {
@@ -229,4 +231,6 @@ class SearchView: UIView {
             make.leading.equalTo(sellButton.snp.leading).offset(59)
         }
     }
+    
 }
+
