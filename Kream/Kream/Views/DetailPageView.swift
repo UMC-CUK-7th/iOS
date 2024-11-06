@@ -95,14 +95,14 @@ class DetailPageView: UIView {
     }()
     
     // 구매버튼 배경
-    private lazy var redButton: UIButton = {
+    lazy var redButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "redBackground"), for: .normal)
         return button
     }()
     
     // 판매버튼 배경
-    private lazy var greenButton: UIButton = {
+    lazy var greenButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "greenBackground"), for: .normal)
         return button

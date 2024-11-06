@@ -28,6 +28,8 @@ class DetailPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        purchaseButtonAction()
     }
     
     // navigation바 설정
@@ -37,6 +39,20 @@ class DetailPageViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButton
         self.navigationController?.navigationBar.tintColor = .gray
         self.navigationController?.navigationBar.topItem?.backButtonTitle = "" //버튼 타이틀 없음
+    }
+    
+    // 구매버튼 액션
+    private func purchaseButtonAction() {
+        detailPageView.redButton.addTarget(self, action: #selector (purchaseButtonDidTap), for: .touchUpInside)
+    }
+    
+    // 구매버튼 클릭시 화면 전환 (modal) + 이미지 전달
+    @objc
+    private func purchaseButtonDidTap() {
+        let button = ProductPurchaseViewController()
+        button.modalPresentationStyle = .automatic
+        present(button, animated: true)
+        button.productImage = detailPageView.productImage.image // 이미지 전달
     }
     
 }

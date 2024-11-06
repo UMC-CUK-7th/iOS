@@ -25,7 +25,7 @@ class DetailPageCollectionViewCell: UICollectionViewCell {
     let productCellImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.layer.borderColor = UIColor.lightGray.cgColor
+        image.layer.borderColor = UIColor.systemGray6.cgColor
         image.layer.borderWidth = 0.5
         return image
     }()

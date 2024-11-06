@@ -52,10 +52,12 @@ extension SavedViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //셀이 선택됐을 때
+        if indexPath.row == 0 { // 0번째 인덱스일 때
             let detailViewController = DetailPageViewController()
             detailViewController.hidesBottomBarWhenPushed = true // 탭 바 숨김 설정
             navigationController?.pushViewController(detailViewController, animated: true) // 화면 전환 (Navigation)
-            tableView.deselectRow(at: indexPath, animated: true) // 선택 셀 자동해제
         }
+        tableView.deselectRow(at: indexPath, animated: true) // 선택 셀 자동해제
+    }
 }
 
