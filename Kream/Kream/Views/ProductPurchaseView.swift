@@ -8,8 +8,118 @@
 import UIKit
 import SnapKit
 
-class ProductPurchaseView: UIView {
+//MARK: - ProductSizeButton
+class ProductSizeButton: UIButton {
+    init(size: String, price: String) {
+        super.init(frame: .zero)
+        
+        // 버튼 기본 배경
+        setImage(UIImage(named: "whiteButton"), for: .normal)
+        layer.borderColor = UIColor.systemGray6.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 10
+        adjustsImageWhenHighlighted = false  // 클릭시 회색 하이라이트 제거
+        
+        // 사이즈 label
+        let sizeLabel = UILabel()
+        sizeLabel.text = size
+        sizeLabel.font = .systemFont(ofSize: 14, weight: .light)
+        sizeLabel.textColor = .black
+        sizeLabel.textAlignment = .center
+        
+        // 가격 label
+        let priceLabel = UILabel()
+        priceLabel.text = price
+        priceLabel.font = .systemFont(ofSize: 12, weight: .light)
+        priceLabel.textColor = .red
+        priceLabel.textAlignment = .center
+        
+        // setup UI
+        self.addSubview(sizeLabel)
+        self.addSubview(priceLabel)
+        
+        // setup Constraints
+        sizeLabel.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(8)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(17)
+        }
+        
+        priceLabel.snp.makeConstraints{
+            $0.top.equalTo(sizeLabel.snp.bottom)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(14)
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
+//MARK: - 배송 Button
+class deliveryButton: UIButton{
+    init(back: String,price: String, label: String){
+        super.init(frame: .zero)
+        
+        setImage(UIImage(named: back), for: .normal)
+        
+        // 가격 label
+        let priceLabel = UILabel()
+        priceLabel.text = price
+        priceLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        priceLabel.textColor = .white
+        priceLabel.textAlignment = .center
+        
+        // 배송 label
+        let dLabel = UILabel()
+        dLabel.font = .systemFont(ofSize: 10, weight: .light)
+        dLabel.text = label
+        dLabel.textColor = .systemGray6
+        dLabel.textAlignment = .center
+        
+        // setup UI
+        self.addSubview(priceLabel)
+        self.addSubview(dLabel)
+        
+        // setup Constraints
+        priceLabel.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(11)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(17)
+        }
+        
+        dLabel.snp.makeConstraints{
+            $0.top.equalToSuperview().offset(28)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(12)
+        }
+        
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: - Label
+class productLabel: UILabel{
+    init(text: String, fontSize: CGFloat, weight: UIFont.Weight, color: UIColor, alignment: NSTextAlignment){
+        super.init(frame: .zero)
+        
+        self.text = text
+        self.font = .systemFont(ofSize: fontSize, weight: weight)
+        self.textColor = color
+        self.textAlignment = alignment
+        numberOfLines = 0
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+//MARK: - ProductPurchaseView (main)
+class ProductPurchaseView: UIView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -19,26 +129,11 @@ class ProductPurchaseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // 구매하기 label
-    let purchaseLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .semibold)
-        label.text = "구매하기"
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
+    // 구매하기
+    let purchaseLabel = productLabel(text: "구매하기", fontSize: 15, weight: .semibold, color: .black, alignment: .center)
     // 가격
-    let priceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 10, weight: .light)
-        label.text = "(가격 단위: 원)"
-        label.textColor = .lightGray
-        label.textAlignment = .center
-        return label
-    }()
-    
+    let priceLabel = productLabel(text: "(가격 단위: 원)", fontSize: 10, weight: .light, color: .lightGray, alignment: .center)
+
     // 상품 이미지
     let productImage: UIImageView = {
         let image = UIImageView()
@@ -54,25 +149,9 @@ class ProductPurchaseView: UIView {
     }
     
     // 상품설명1
-    let infoLabel1: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .light)
-        label.text = "Basic Stussy Hoodie Ash Heather 2024"
-        label.textColor = .black
-        label.textAlignment = .left
-        label.numberOfLines = 0
-        return label
-    }()
-    
+    let infoLabel1 = productLabel(text: "Basic Stussy Hoodie Ash Heather 2024", fontSize: 14, weight: .light, color: .black, alignment: .left)
     // 상품설명2
-    let infoLabel2: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "베이직 스투시 후드 애쉬 헤더 2024"
-        label.textColor = .lightGray
-        label.textAlignment = .left
-        return label
-    }()
+    let infoLabel2 = productLabel(text: "베이직 스투시 후드 애쉬 헤더 2024", fontSize: 12, weight: .light, color: .lightGray, alignment: .left)
     
     // 구분선
     let line : UIView = {
@@ -81,59 +160,9 @@ class ProductPurchaseView: UIView {
         return line
     }()
     
-    // 빠른배송 버튼 배경
-    lazy var redButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "redBackground1"), for: .normal)
-        return button
-    }()
-    
-    // 일반배송 버튼 배경
-    lazy var blackButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "blackBackground"), for: .normal)
-        return button
-    }()
-    
-    // 빠른배송 가격
-    let fastPriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .medium)
-        label.text = "214,000"
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // 일반배송 가격
-    let generalPriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .medium)
-        label.text = "201,000"
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // 빠른배송 label
-    let fastLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 10, weight: .light)
-        label.text = "빠른배송(1-2일 소요)"
-        label.textColor = .systemGray6
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // 일반배송 label
-    let genLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 10, weight: .light)
-        label.text = "일반배송(5-7일 소요)"
-        label.textColor = .systemGray6
-        label.textAlignment = .center
-        return label
-    }()
+    // 배송 버튼
+    lazy var redButton = deliveryButton(back: "redBackground1", price: "214,000", label: "빠른배송(1-2일 소요)")
+    lazy var blackButton = deliveryButton(back: "blackBackground", price: "201,000", label: "일반배송(5-7일 소요)")
     
     // 취소 버튼
     lazy var cancleButton: UIButton = {
@@ -142,160 +171,12 @@ class ProductPurchaseView: UIView {
         return button
     }()
     
-    // S 버튼
-    lazy var smallButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "whiteButton"), for: .normal)
-        button.layer.borderColor = UIColor.systemGray6.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 10
-        button.adjustsImageWhenHighlighted = false // 클릭시 회색 하이라이트 제거
-        return button
-    }()
-    
-    // S label
-    let smallLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .light)
-        label.text = "S"
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // S 가격
-    let smallPriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "209,000"
-        label.textColor = .red
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // M 버튼
-    lazy var mediumButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "whiteButton"), for: .normal)
-        button.layer.borderColor = UIColor.systemGray6.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 10
-        button.adjustsImageWhenHighlighted = false
-        return button
-    }()
-    
-    // M label
-    let mediumLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .light)
-        label.text = "M"
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // M 가격
-    let mediumPriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "201,000"
-        label.textColor = .red
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // L 버튼
-    lazy var largeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "whiteButton"), for: .normal)
-        button.layer.borderColor = UIColor.systemGray6.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 10
-        button.adjustsImageWhenHighlighted = false
-        return button
-    }()
-    
-    // L label
-    let largeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .light)
-        label.text = "L"
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // L 가격
-    let largePriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "199,000"
-        label.textColor = .red
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // XL 버튼
-    lazy var xlargeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "whiteButton"), for: .normal)
-        button.layer.borderColor = UIColor.systemGray6.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 10
-        button.adjustsImageWhenHighlighted = false
-        return button
-    }()
-    
-    // XL label
-    let xlargeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .light)
-        label.text = "XL"
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // XL 가격
-    let xlargePriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "195,000"
-        label.textColor = .red
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // XXL 버튼
-    lazy var xxlargeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "whiteButton"), for: .normal)
-        button.layer.borderColor = UIColor.systemGray6.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 10
-        button.adjustsImageWhenHighlighted = false
-        return button
-    }()
-    
-    // XXL label
-    let xxlargeLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14, weight: .light)
-        label.text = "XL"
-        label.textColor = .black
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // XXL 가격
-    let xxlargePriceLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 12, weight: .light)
-        label.text = "197,000"
-        label.textColor = .red
-        label.textAlignment = .center
-        return label
-    }()
+    // 사이즈 Button
+    lazy var smallButton = ProductSizeButton(size: "S", price: "209,000")
+    lazy var mediumButton = ProductSizeButton(size: "M", price: "201,000")
+    lazy var largeButton = ProductSizeButton(size: "L", price: "199,000")
+    lazy var xlargeButton = ProductSizeButton(size: "XL", price: "195,000")
+    lazy var xxlargeButton = ProductSizeButton(size: "XXL", price: "197,000")
     
     //MARK: - setupUI
     private func setupUI() {
@@ -314,20 +195,7 @@ class ProductPurchaseView: UIView {
         self.addSubview(largeButton)
         self.addSubview(xlargeButton)
         self.addSubview(xxlargeButton)
-        redButton.addSubview(fastPriceLabel)
-        redButton.addSubview(fastLabel)
-        blackButton.addSubview(generalPriceLabel)
-        blackButton.addSubview(genLabel)
-        smallButton.addSubview(smallLabel)
-        smallButton.addSubview(smallPriceLabel)
-        mediumButton.addSubview(mediumLabel)
-        mediumButton.addSubview(mediumPriceLabel)
-        largeButton.addSubview(largeLabel)
-        largeButton.addSubview(largePriceLabel)
-        xlargeButton.addSubview(xlargeLabel)
-        xlargeButton.addSubview(xlargePriceLabel)
-        xxlargeButton.addSubview(xxlargeLabel)
-        xxlargeButton.addSubview(xxlargePriceLabel)
+        
         setupConstraints()
     }
     
@@ -394,34 +262,6 @@ class ProductPurchaseView: UIView {
             $0.width.equalTo(168)
         }
         
-        // 빠른배송 가격
-        fastPriceLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(11)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // 일반배송 가격
-        generalPriceLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(11)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // 빠른배송 label
-        fastLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(28)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(12)
-        }
-        
-        // 일반배송 label
-        genLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(28)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(12)
-        }
-        
         // 취소버튼
         cancleButton.snp.makeConstraints{
             $0.top.equalToSuperview().offset(20)
@@ -438,20 +278,6 @@ class ProductPurchaseView: UIView {
             $0.width.equalTo(110)
         }
         
-        // S label
-        smallLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // S 가격
-        smallPriceLabel.snp.makeConstraints{
-            $0.top.equalTo(smallLabel.snp.bottom)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(14)
-        }
-        
         // M 버튼
         mediumButton.snp.makeConstraints{
             $0.top.equalTo(smallButton)
@@ -460,41 +286,13 @@ class ProductPurchaseView: UIView {
             $0.width.equalTo(110)
         }
         
-        // M label
-        mediumLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // M 가격
-        mediumPriceLabel.snp.makeConstraints{
-            $0.top.equalTo(mediumLabel.snp.bottom)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(14)
-        }
-        
-        
         // L 버튼
         largeButton.snp.makeConstraints{
             $0.top.equalTo(smallButton)
-            $0.leading.equalTo(mediumButton.snp.trailing).offset(7)
+            //$0.leading.equalTo(mediumButton.snp.trailing).offset(7)
+            $0.trailing.equalToSuperview().inset(15)
             $0.height.equalTo(47)
             $0.width.equalTo(110)
-        }
-        
-        // L label
-        largeLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // L 가격
-        largePriceLabel.snp.makeConstraints{
-            $0.top.equalTo(largeLabel.snp.bottom)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(14)
         }
         
         // XL 버튼
@@ -505,20 +303,6 @@ class ProductPurchaseView: UIView {
             $0.width.equalTo(110)
         }
         
-        // XL label
-        xlargeLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // XL 가격
-        xlargePriceLabel.snp.makeConstraints{
-            $0.top.equalTo(xlargeLabel.snp.bottom)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(14)
-        }
-        
         // XXL 버튼
         xxlargeButton.snp.makeConstraints{
             $0.top.equalTo(xlargeButton)
@@ -526,22 +310,8 @@ class ProductPurchaseView: UIView {
             $0.height.equalTo(47)
             $0.width.equalTo(110)
         }
-        
-        // XXL label
-        xxlargeLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(8)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(17)
-        }
-        
-        // XXL 가격
-        xxlargePriceLabel.snp.makeConstraints{
-            $0.top.equalTo(xxlargeLabel.snp.bottom)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(14)
-        }
+
     }
     
 }
-
 
