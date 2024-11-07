@@ -5,6 +5,7 @@
 //  Created by 김윤진 on 10/21/24.
 //
 
+// HomeViewController.swift
 import UIKit
 import SnapKit
 
@@ -35,6 +36,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         )
     }
     
+    // searchTextField에 탭 제스처 추가
+    private func setupSearchTextFieldTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchTextFieldTapped))
+        homeView.searchTextField.addGestureRecognizer(tapGesture)
+        homeView.searchTextField.isUserInteractionEnabled = true
+    }
+    
     private func setupDelegate() {
         homeView.recommendCollectionView.dataSource = self
         homeView.recommendCollectionView.delegate = self
@@ -44,16 +52,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         homeView.winterCollectionView.delegate = self
     }
     
-    private func setupSearchTextFieldTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchTextFieldTapped))
-        homeView.searchTextField.addGestureRecognizer(tapGesture)
-        homeView.searchTextField.isUserInteractionEnabled = true
-    }
-    
+    // searchTextField를 탭했을 때 호출되는 메서드
     @objc private func searchTextFieldTapped() {
-        let searchViewController = SearchViewController()
-        searchViewController.hidesBottomBarWhenPushed = true // 탭 바 숨기기기 위한 코드 추가.
-        navigationController?.pushViewController(searchViewController, animated: true)
+        let searchtextViewController = SearchTextViewController()
+        navigationController?.pushViewController(searchtextViewController, animated: true)
     }
     
     @objc private func segmentedControlValueChanged(segment: UISegmentedControl) {
@@ -92,8 +94,11 @@ extension HomeViewController: UICollectionViewDataSource {
             ) as? HomeCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            
+            // HomeModel 객체에 접근하여 getter 사용
             let model = HomeModel.dummy()[indexPath.row]
             cell.configure(with: model)
+            
             return cell
         } else if collectionView == homeView.droppedCollectionView {
             guard let cell = collectionView.dequeueReusableCell(
@@ -120,7 +125,20 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionViewDelegateFlowLayout , 위에 선언 추가해서 여기엔 할 필요 x.
+
+// MARK: - UICollectionViewDelegate
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // 윈터 컬렉션 뷰의 첫 번째 셀이 선택되었을 때 화면 전환
+        if collectionView == homeView.winterCollectionView && indexPath.row == 0 {
+            let searchViewController = SearchViewController()
+            searchViewController.hidesBottomBarWhenPushed = true // 탭 바 숨기기
+            navigationController?.pushViewController(searchViewController, animated: true)
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
 extension HomeViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == homeView.recommendCollectionView {
@@ -159,10 +177,11 @@ extension HomeViewController {
 // MARK: - collectionView : Configure func.ver
 extension HomeCollectionViewCell {
     func configure(with model: HomeModel) {
-        imageView.image = model.homemodelImage
-        titleLabel.text = model.homemodelName
+        imageView.image = model.getHomemodelImage() // getter 사용
+        titleLabel.text = model.getHomemodelName() // getter 사용
     }
 }
+
 
 extension DroppedCollectionViewCell {
     func configure(with model: DroppedModel) {
@@ -181,4 +200,4 @@ extension WinterCollectionViewCell {
         imageView.image = model.wintermodelImage
         idLabel.text = model.wintermodelName
     }
-}
+} 

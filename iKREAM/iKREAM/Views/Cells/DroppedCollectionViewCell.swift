@@ -7,13 +7,24 @@
 import UIKit
 import SnapKit
 
+// // MARK: - DIP 적용: 뷰 모델 정의
+struct DroppedItemViewModel {
+    let image: UIImage
+    let cornerText: String
+    let bottomRightImage: UIImage
+    let title: String
+    let description: String
+    let price: String
+    let availability: String
+}
+
 class DroppedCollectionViewCell: UICollectionViewCell {
     static let identifier = "DroppedCollectionViewCell"
     
     // 이미지 뷰
     let imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
-        $0.layer.cornerRadius = 5 // 모서리 반경을 줄여서 약간 둥근 모양으로 설정
+        $0.layer.cornerRadius = 5
         $0.clipsToBounds = true
     }
     
@@ -21,9 +32,7 @@ class DroppedCollectionViewCell: UICollectionViewCell {
     let cornerTextLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 10, weight: .regular)
         $0.textColor = .lightGray
-        //$0.backgroundColor = UIColor.black.withAlphaComponent(0.6) // 배경색 설정
         $0.textAlignment = .center
-        //$0.layer.cornerRadius = 5
         $0.clipsToBounds = true
     }
     
@@ -64,33 +73,45 @@ class DroppedCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - View Setup (SRP 적용)
     private func setupView() {
-        addSubview(imageView)
+        setupLabels()
+        setupImages()
+    }
+    
+    private func setupLabels() {
         addSubview(cornerTextLabel)
-        addSubview(bottomRightImageView)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(priceLabel)
         addSubview(availableLabel)
-        
+    }
+    
+    private func setupImages() {
+        addSubview(imageView)
+        addSubview(bottomRightImageView)
+    }
+    
+    private func setupConstraints() {
         // 이미지 뷰 제약 설정
         imageView.snp.makeConstraints {
             $0.top.horizontalEdges.equalToSuperview()
-            $0.width.height.equalTo(142) // 원하는 높이로 설정
+            $0.width.height.equalTo(142)
         }
         
         // 오른쪽 위 모서리 텍스트 제약 설정
         cornerTextLabel.snp.makeConstraints {
             $0.top.equalTo(imageView).offset(8)
             $0.trailing.equalTo(imageView).offset(-8)
-            $0.width.equalTo(50) // 원하는 너비로 설정
-            $0.height.equalTo(20) // 원하는 높이로 설정
+            $0.width.equalTo(50)
+            $0.height.equalTo(20)
         }
         
         // 오른쪽 아래 이미지 제약 설정
@@ -132,8 +153,16 @@ class DroppedCollectionViewCell: UICollectionViewCell {
             $0.width.equalTo(48)
             $0.height.equalTo(14)
         }
-        
     }
     
+    // MARK: - Configure Cell with ViewModel (DIP 적용)
+    func configure(with viewModel: DroppedItemViewModel) {
+        imageView.image = viewModel.image
+        cornerTextLabel.text = viewModel.cornerText
+        bottomRightImageView.image = viewModel.bottomRightImage
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
+        priceLabel.text = viewModel.price
+        availableLabel.text = viewModel.availability
+    }
 }
-    

@@ -8,13 +8,36 @@
 import Foundation
 import UIKit
 
-//4주차
 struct HomeModel {
-    let homemodelImage: UIImage
-    let homemodelName: String
+    private var homemodelImage: UIImage
+    private var homemodelName: String
+    
+    // initializer
+    init(homemodelImage: UIImage, homemodelName: String) {
+        self.homemodelImage = homemodelImage
+        self.homemodelName = homemodelName
+    }
+    
+    // getter for homemodelImage
+    func getHomemodelImage() -> UIImage {
+        return homemodelImage
+    }
+    
+    // getter for homemodelName
+    func getHomemodelName() -> String {
+        return homemodelName
+    }
+    
+    // setter for homemodelImage (if needed)
+    mutating func setHomemodelImage(_ image: UIImage) {
+        homemodelImage = image
+    }
+    
+    // setter for homemodelName (if needed)
+    mutating func setHomemodelName(_ name: String) {
+        homemodelName = name
+    }
 }
-
-
 
 extension HomeModel {
     static func dummy() -> [HomeModel] {
@@ -32,4 +55,3 @@ extension HomeModel {
         ]
     }
 }
-

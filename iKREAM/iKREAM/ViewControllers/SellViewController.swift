@@ -170,6 +170,46 @@ class SellViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
+    
+    private let fastButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("345,000", for: .normal)
+        button.backgroundColor = UIColor(red: 239/255, green: 98/255, blue: 84/255, alpha: 1.0)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        button.contentHorizontalAlignment = .center
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
+    private let fastLabel: UILabel = {
+        let label = UILabel()
+        label.text = "빠른배송(1-2일 소요)"
+        label.font = .systemFont(ofSize: 10, weight: .light)
+        label.textColor = UIColor(red: 1.0, green: 0.792, blue: 0.725, alpha: 1.0)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let normalButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("407,000", for: .normal)
+        button.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        button.contentHorizontalAlignment = .center
+        button.layer.cornerRadius = 8
+        return button
+    }()
+    
+    private let normalLabel: UILabel = {
+        let label = UILabel()
+        label.text = "일반배송(5-7일 소요)"
+        label.font = .systemFont(ofSize: 10, weight: .light)
+        label.textColor = UIColor(red: 0.886, green: 0.886, blue: 0.886, alpha: 1.0)
+        label.textAlignment = .center
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -204,7 +244,10 @@ class SellViewController: UIViewController {
         LButton.addSubview(priceLabelL)
         XLButton.addSubview(priceLabelXL)
         XXLButton.addSubview(priceLabelXXL)
-        
+        view.addSubview(fastButton)
+        fastButton.addSubviews(fastLabel)
+        view.addSubview(normalButton)
+        normalButton.addSubviews(normalLabel)
 
         
     }
@@ -285,6 +328,26 @@ class SellViewController: UIViewController {
         priceLabelXXL.snp.makeConstraints { make in
             make.top.equalTo(XXLButton.snp.top).offset(29)
             make.leading.equalTo(XXLButton.snp.leading).offset(32)
+        }
+        fastButton.snp.makeConstraints { make in
+            make.top.equalTo(XLButton.snp.bottom).offset(365)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(16)
+            make.width.equalTo(168)
+            make.height.equalTo(52)
+        }
+        fastLabel.snp.makeConstraints { make in
+            make.top.equalTo(fastButton.snp.top).offset(32)
+            make.leading.equalTo(fastButton.snp.leading).offset(41)
+        }
+        normalButton.snp.makeConstraints { make in
+            make.top.equalTo(XLButton.snp.bottom).offset(365)
+            make.leading.equalTo(fastButton.snp.trailing).offset(6)
+            make.width.equalTo(168)
+            make.height.equalTo(52)
+        }
+        normalLabel.snp.makeConstraints { make in
+            make.top.equalTo(normalButton.snp.top).offset(32)
+            make.leading.equalTo(normalButton.snp.leading).offset(41)
         }
     }
 
