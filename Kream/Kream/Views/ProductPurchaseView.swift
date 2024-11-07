@@ -133,7 +133,7 @@ class ProductPurchaseView: UIView {
     let purchaseLabel = productLabel(text: "구매하기", fontSize: 15, weight: .semibold, color: .black, alignment: .center)
     // 가격
     let priceLabel = productLabel(text: "(가격 단위: 원)", fontSize: 10, weight: .light, color: .lightGray, alignment: .center)
-
+    
     // 상품 이미지
     let productImage: UIImageView = {
         let image = UIImageView()
@@ -289,7 +289,6 @@ class ProductPurchaseView: UIView {
         // L 버튼
         largeButton.snp.makeConstraints{
             $0.top.equalTo(smallButton)
-            //$0.leading.equalTo(mediumButton.snp.trailing).offset(7)
             $0.trailing.equalToSuperview().inset(15)
             $0.height.equalTo(47)
             $0.width.equalTo(110)
@@ -310,7 +309,7 @@ class ProductPurchaseView: UIView {
             $0.height.equalTo(47)
             $0.width.equalTo(110)
         }
-
+        
     }
     
 }
