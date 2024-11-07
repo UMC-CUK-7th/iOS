@@ -143,18 +143,9 @@ class SearchView: UIView {
     // MARK: - SetupUI
     private func setupUI() {
         self.backgroundColor = .white
-        self.addSubviews(jumperImageView)
-        self.addSubviews(matinCollectionView)
-        self.addSubviews(nowLabel)
-        self.addSubviews(priceLabel)
-        self.addSubviews(nameLabel)
-        self.addSubviews(detailLabel)
-        self.addSubviews(saveImageView)
-        self.addSubviews(saveLabel)
-        self.addSubviews(buyButton)
+        self.addSubviews(jumperImageView,matinCollectionView,nowLabel,priceLabel,nameLabel,detailLabel,saveImageView,saveLabel,buyButton,sellButton)
         buyButton.addSubviews(subLabel)
         buyButton.addSubviews(sub2Label)
-        self.addSubviews(sellButton)
         sellButton.addSubviews(sub3Label)
         sellButton.addSubviews(sub4Label)
         
