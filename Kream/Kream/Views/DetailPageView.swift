@@ -171,7 +171,6 @@ class DetailPageView: UIView {
     
     // 아더컬러 UICollectionView
     let detailPageCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
-        $0.estimatedItemSize = .init(width: 53, height: 53)
         $0.minimumInteritemSpacing = 8
         $0.scrollDirection = .horizontal}).then{
             $0.backgroundColor = .clear

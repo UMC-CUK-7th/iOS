@@ -25,8 +25,6 @@ class ProductPurchaseViewController: UIViewController {
         super.viewDidLoad()
         cancleButtonAction()
         setupButtonArray()
-        // setImage() // viewDidLoad에서 호출하면 이미지가 아직 DetailPageViewController에서 전달되지 않아서 보이지 않는듯..합니다
-        // 뷰가 화면에 완전히 나타난 후에 호출되게끔, viewDidAppear에서 호출하면 미세하게 이미지게 늦게 로드되는 감이 있어서 didSet에대해 알아보고 사용했습니답..
     }
     
     private func setupButtonArray(){
