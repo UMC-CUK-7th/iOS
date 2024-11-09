@@ -7,7 +7,7 @@
 
 import UIKit
 class TabBarController: UITabBarController {
-    let HomeVC = HomeViewController() //인스턴스화
+    let HomeVC =  UINavigationController(rootViewController: HomeViewController())
     let StyleVC = UIViewController()
     let ShopVC = UIViewController()
     let SavedVC = SavedViewController()

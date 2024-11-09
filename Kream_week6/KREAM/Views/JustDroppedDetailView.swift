@@ -15,7 +15,7 @@ class JustDroppedDetailView: UIView {
     //메인사진
     let imageView : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "product")
+        imageView.image = UIImage(named: "Karina.png")
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -25,12 +25,11 @@ class JustDroppedDetailView: UIView {
         layout.estimatedItemSize = .init(width: 53, height:53)
         layout.minimumInteritemSpacing = 8
         layout.scrollDirection = .horizontal
-        
         let view = UICollectionView(frame: .zero,collectionViewLayout: layout)
-        view.backgroundColor = .red
+        view.backgroundColor = .clear
         view.isScrollEnabled = true
         view.layer.borderColor = UIColor.black.cgColor
-        view.register(HomeHanpaCell.self, forCellWithReuseIdentifier: HomeHanpaCell.identifier) //나중에 바꿔야함!!
+        view.register(ProductColorCell.self, forCellWithReuseIdentifier: ProductColorCell.identifier)
         return view
     }()
     
@@ -46,8 +45,8 @@ class JustDroppedDetailView: UIView {
     let productPriceLabel : UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .systemFont(ofSize: 16)
-        label.text = "10000"
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.text = "10,000원"
         return label
     }()
     
@@ -62,7 +61,7 @@ class JustDroppedDetailView: UIView {
     
     let productDescriptionLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .gray
         label.font = .systemFont(ofSize: 12)
         label.text = "상품 한국이름"
         return label
@@ -76,7 +75,7 @@ class JustDroppedDetailView: UIView {
     
     let bookmarkImage : UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "bookmark")
+        imageView.image = UIImage(named: "Saved.png")
         return imageView
     }()
     
@@ -84,14 +83,14 @@ class JustDroppedDetailView: UIView {
         let label = UILabel()
         label.textColor = .black
         label.font = .systemFont(ofSize: 12)
-        label.text = "2122"
+        label.text = "2,122"
         return label
     }()
     
     //구매버튼 component
     let purchaseButton : UIButton = {
         let button = UIButton()
-        button.backgroundColor = .red
+        button.backgroundColor = .systemRed
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         return button
@@ -100,22 +99,22 @@ class JustDroppedDetailView: UIView {
     let purchaseLabel : UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 16, weight: .bold)
         label.text = "구매"
         return label
     }()
     
-    let priceLabel : UILabel = {
+    let purchasePriceLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 12)
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 13, weight: .bold)
         label.text = "10000"
         return label
     }()
     
     let purchasesubLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .brown
         label.font = .systemFont(ofSize: 12)
         label.text = "즉시구매가"
         return label
@@ -125,7 +124,7 @@ class JustDroppedDetailView: UIView {
     //판매버튼 UIComponent
     let sellButton : UIButton = {
         let button = UIButton()
-        button.backgroundColor = .green
+        button.backgroundColor = .systemGreen
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
         return button
@@ -134,23 +133,23 @@ class JustDroppedDetailView: UIView {
     let sellLabel : UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .systemFont(ofSize: 16)
+        label.font = .systemFont(ofSize: 16,weight: .bold)
         label.text =  "판매"
         return label
     }()
     
     let sellPriceLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 12)
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 13,weight: .bold)
         label.text = "112300"
         return label
     }()
     
     let sellsubLabel : UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 12)
+        label.textColor = .brown
+        label.font = .systemFont(ofSize: 10)
         label.text = "즉시판매가"
         return label
     }()
@@ -173,14 +172,16 @@ class JustDroppedDetailView: UIView {
     private func SetUpUI(){
         addSubview(imageView)
         addSubview(productColorCollectionView)
-        addSubviews(buynowLabel,productNameLabel,productPriceLabel)
+        addSubviews(buynowLabel,productNameLabel,productDescriptionLabel,productPriceLabel)
         addSubview(dividedLine)
-        addSubviews(bookmarkImage,bookmarkLabel,purchaseLabel,purchaseButton,purchasesubLabel,sellButton,sellLabel,sellPriceLabel,sellsubLabel)
+        addSubviews(bookmarkImage,bookmarkLabel,purchaseButton,sellButton)
+        purchaseButton.addSubviews(purchaseLabel,purchasePriceLabel,purchasesubLabel)
+        sellButton.addSubviews(sellLabel,sellPriceLabel,sellsubLabel)
+        
         imageView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(373)
-            make.width.equalTo(373)
+            make.height.equalTo(300)
         }
         
         productColorCollectionView.snp.makeConstraints { make in
@@ -188,7 +189,7 @@ class JustDroppedDetailView: UIView {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(53)
         }
-        
+        //즉시구매가
         buynowLabel.snp.makeConstraints { make in
             make.top.equalTo(productColorCollectionView.snp.bottom).offset(23)
             make.leading.equalToSuperview().inset(16)
@@ -213,8 +214,10 @@ class JustDroppedDetailView: UIView {
             make.height.equalTo(14)
         }
         
+        //구분선
         dividedLine.snp.makeConstraints { make in
-            make.top.equalTo(productDescriptionLabel.snp.bottom).offset(14)
+            make.top.equalTo(productDescriptionLabel.snp.bottom).offset(20)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(1)
         }
         
@@ -229,19 +232,53 @@ class JustDroppedDetailView: UIView {
             make.leading.equalToSuperview().inset(16)
             make.height.equalTo(14)
         }
+        sellButton.snp.makeConstraints { make in
+            make.top.equalTo(dividedLine.snp.bottom).offset(8)
+            make.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(49)
+            make.width.equalTo(140)
+        }
         
         purchaseButton.snp.makeConstraints { make in
             make.top.equalTo(dividedLine.snp.bottom).offset(8)
-            make.leading.equalTo(bookmarkLabel.snp.trailing).offset(19)
-            make.height.equalTo(38)
-            
+            make.trailing.equalTo(sellButton.snp.leading).offset(-6)
+            make.leading.equalTo(bookmarkImage.snp.trailing).offset(19)
+            make.height.equalTo(49)
+            make.width.equalTo(140)
         }
         
-        sellButton.snp.makeConstraints { make in
-            make.top.equalTo(dividedLine.snp.bottom).offset(8)
-            make.leading.equalTo(purchaseButton.snp.trailing).offset(6)
-            make.trailing.equalToSuperview().inset(10)
-            make.height.equalTo(38)
+        purchaseLabel.snp.makeConstraints { make in
+            make.top.equalTo(purchaseButton.snp.top).offset(15)
+            make.leading.equalTo(purchaseButton.snp.leading).offset(10)
+            make.height.equalTo(19)
+        }
+        
+        purchasePriceLabel.snp.makeConstraints { make in
+            make.top.equalTo(purchaseButton.snp.top).offset(8)
+            make.leading.equalTo(purchaseLabel.snp.trailing).offset(21)
+            make.height.equalTo(16)
+        }
+        
+        purchasesubLabel.snp.makeConstraints { make in
+            make.top.equalTo(purchasePriceLabel.snp.bottom).offset(2)
+            make.leading.equalTo(purchaseLabel.snp.trailing).offset(21)
+            make.height.equalTo(12)
+        }
+        
+        sellLabel.snp.makeConstraints { make in
+            make.top.equalTo(sellButton.snp.top).offset(15)
+            make.leading.equalTo(sellButton.snp.leading).offset(10)
+            make.height.equalTo(19)
+        }
+        sellPriceLabel.snp.makeConstraints { make in
+            make.top.equalTo(sellButton.snp.top).offset(8)
+            make.leading.equalTo(sellLabel.snp.trailing).offset(21)
+            make.height.equalTo(16)
+        }
+        sellsubLabel.snp.makeConstraints { make in
+            make.top.equalTo(sellPriceLabel.snp.bottom).offset(2)
+            make.leading.equalTo(sellLabel.snp.trailing).offset(21)
+            make.height.equalTo(12)
         }
     }
 

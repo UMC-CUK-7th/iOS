@@ -8,22 +8,56 @@
 import UIKit
 
 class PurchaseButtonTapViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    //MARK: - Properties
+    let purchasButtonTapView=PurchaseButtonTapView()
+    lazy var buttonArray: [UIButton] = [
+        purchasButtonTapView.sizeSButton,
+        purchasButtonTapView.sizeMButton,
+        purchasButtonTapView.sizeLButton,
+        purchasButtonTapView.sizeXLButton,
+        purchasButtonTapView.sizeXXLButton
+    ]
+    
+    //MARK: -LifeCycle
+    override func loadView() {
+        self.view = PurchaseButtonTapView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        purchasButtonTapView.XButton.addTarget(self,action: #selector(XButtonActionDidTap),for: .touchUpInside)
+        sizeButtonDidTap()
     }
-    */
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //setProductImage()
+        
+    }
+    
+    //MARK: - Function
+    
+    // 모달뷰 해제
+    @objc
+    private func XButtonActionDidTap(){
+        self.dismiss(animated: true)
+    }
+    
+   @objc
+    private func sizeButtonDidTap(){
+        for button in buttonArray{
+            button.addTarget(self, action: #selector(sizeButton(_:)), for: .touchUpInside)
+        }
+         }
+   
+    //버튼 선택시 보더라인색 바꾸기
+    @objc
+    private func sizeButton(_ sender: UIButton){
+        for _ in buttonArray{
+            sender.layer.borderColor = UIColor.lightGray.cgColor
+        }
+        sender.layer.borderColor = UIColor.black.cgColor
+    }
+    
 }

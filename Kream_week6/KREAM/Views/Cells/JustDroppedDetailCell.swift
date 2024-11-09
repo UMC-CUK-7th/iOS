@@ -18,30 +18,21 @@ class ProductColorCell: UICollectionViewCell {
         return imageView
     }()
     
-    let detailButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .red
-        return button
-    }()
     
     
     //MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(imageView)
-        addSubview(detailButton)
+        
         imageView.snp.makeConstraints { make in
-            make.top.edges.equalToSuperview()
+            make.top.equalToSuperview()
             make.bottom.equalToSuperview()
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(53)
             make.width.equalTo(53)
         }
-        
-        detailButton.snp.makeConstraints { make in
-            make.top.edges.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.width.equalTo(53)
-        }
+
     }
         
     override func prepareForReuse() {

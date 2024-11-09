@@ -25,7 +25,7 @@ class MypageView: UIView {
         self.addSubview(profileNameLabel)
         self.addSubview(profileFollowerLabel)
         self.addSubview(profileFollowingLabel)
-        self.addSubview(profileManageButton)
+        self.addSubview(ProfileManageButton)
         self.addSubview(ProfileShareButton)
         //제약조건
         self.settingButton.snp.makeConstraints({ make in
@@ -62,7 +62,7 @@ class MypageView: UIView {
             make.leading.equalTo(profileFollowerLabel.snp.trailing).offset(8)
             
         })
-        self.profileManageButton.snp.makeConstraints({ make in
+        self.ProfileManageButton.snp.makeConstraints({ make in
             make.top.equalTo(ProfileImage.snp.bottom).offset(26)
             make.leading.equalToSuperview().inset(32.5)
             make.trailing.equalToSuperview().inset(203.5)
@@ -72,7 +72,7 @@ class MypageView: UIView {
         
         self.ProfileShareButton.snp.makeConstraints({ make in
             make.top.equalTo(ProfileImage.snp.bottom).offset(26)
-            make.leading.equalTo(profileManageButton.snp.trailing).offset(14)
+            make.leading.equalTo(ProfileManageButton.snp.trailing).offset(14)
             make.trailing.equalToSuperview().inset(33.5)
             make.height.equalTo(26)
         })
@@ -156,7 +156,7 @@ class MypageView: UIView {
     
     
     // 프로필 관리 버튼
-    public lazy var profileManageButton : UIButton = {
+    public lazy var ProfileManageButton : UIButton = {
         let btn = UIButton()
         btn.setTitle("프로필 관리", for: .normal)
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 9, weight: .regular)

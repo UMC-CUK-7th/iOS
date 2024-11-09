@@ -22,7 +22,8 @@ class JustDroppedDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         justDroppedDetailView.productColorCollectionView.delegate = self
-        
+        justDroppedDetailView.productColorCollectionView.dataSource = self
+        justDroppedDetailView.purchaseButton.addTarget(self, action: #selector(purchaseButtonDidTap), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +32,6 @@ class JustDroppedDetailViewController: UIViewController {
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        Ishidden()
     }
     
     
@@ -46,12 +46,18 @@ class JustDroppedDetailViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
-    //탭바 숨기기
-    func Ishidden(){
-        tabBarController?.tabBar.isHidden = true
+ 
+    
+    
+    
+    @objc private func purchaseButtonDidTap(){
+        let button = PurchaseButtonTapViewController()
+        button.modalPresentationStyle = .automatic
+        present(button, animated: true)
+        
     }
-}
-
+    
+    }
 
 
 //MARK: - Extension
@@ -62,6 +68,8 @@ extension JustDroppedDetailViewController :  UICollectionViewDataSource{
    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductColorCell", for: indexPath) as! ProductColorCell
+        let list = ProductColorModel.ProductColorDummy()
+        cell.imageView.image = list[indexPath.row].image
         return cell
     }
 }

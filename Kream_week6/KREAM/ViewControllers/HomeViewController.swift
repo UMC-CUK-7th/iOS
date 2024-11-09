@@ -31,7 +31,6 @@ class HomeViewController: UIViewController {
     //세그 컨트롤 인덱스값업데이트시 실행될 메서드
     private func setUpAction(){
         homeView.SegmentedControl.addTarget(self, action: #selector(SegmentedControlValueChanged(segment:)), for: .valueChanged)
-        homeJustDroppedCell.button.addTarget(self, action:#selector(didTapButton), for: .touchUpInside)
     
     }
 
@@ -141,18 +140,21 @@ extension HomeViewController : UICollectionViewDataSource{
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
-}
-
-extension HomeViewController: CollectionViewCellDelegate {
-    @objc func didTapButton(in cell: HomeJustDroppedCell) {
-        // indexPath를 사용하여 데이터 전달
-        if let indexPath = homeView.justDroppedCollectionView.indexPath(for: cell) {
-            if indexPath.row == 0{
-                let detailVC = JustDroppedDetailViewController()
-                detailVC.recievedData = HomeJustDroppedModel.HomeJustDroppedDummy()[indexPath.row].image
-                navigationController?.pushViewController(detailVC, animated: true)
+    func collectionView(_ collectionView: UICollectionView,didselectItemAtindexPath:IndexPath){
+        if collectionView == homeView.justDroppedCollectionView {
+            if didselectItemAtindexPath.row == 0 {
+             //   let detailVC = JustDroppedDetailViewController()
             }
         }
+    }
+}
+//셀에 있는 버튼액션을 프로토콜에 위임하고 그 프로토콜을 여기다가 구현한건데
+extension HomeViewController: CollectionViewCellDelegate {
+    func didTapButton(in cell: HomeJustDroppedCell) {
+        let detailVC = JustDroppedDetailViewController()
+        detailVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        
+        
     }
 }

@@ -20,7 +20,7 @@ class MypageViewcontroller: UIViewController {
         super.viewDidLoad()
         
         
-        self.Mypage.profileManageButton.addTarget(self, action: #selector(ManageButtonDidTap), for: .touchUpInside)
+        self.Mypage.ProfileManageButton.addTarget(self, action: #selector(ManageButtonDidTap), for: .touchUpInside)
         
         
     }

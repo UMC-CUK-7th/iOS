@@ -30,7 +30,6 @@ class HomeJustDroppedCell: UICollectionViewCell {
     
     let button: UIButton = {
         let button = UIButton()
-        button.setTitle("나와라얍", for: .normal)
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isUserInteractionEnabled = true
@@ -81,6 +80,7 @@ class HomeJustDroppedCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -96,7 +96,7 @@ class HomeJustDroppedCell: UICollectionViewCell {
     
     
     //MARK: - Function
-    @objc private func buttonTapped() {
+    @objc private func buttonTapped(){
          delegate?.didTapButton(in: self)
      }
     
