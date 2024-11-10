@@ -10,12 +10,6 @@ import UIKit
 
 struct SearchModel {
     let searchImage: UIImage
-    /*let searchImage2: UIImage
-    let searchImage3: UIImage
-    let serchImage4: UIImage
-    let searchImage5: UIImage
-    let searchImage6: UIImage
-    let searchImage7: UIImage*/
 }
 
 extension SearchModel {
