@@ -322,6 +322,6 @@ class HomeView: UIView {
         }
     }
 }
-#Preview {
-    HomeView()
-}
+//#Preview {
+//    HomeView()
+//}

@@ -16,6 +16,7 @@ struct SavedModel{
 
 final class dummySavedModel{
     static let saveDatas: [SavedModel] = [
+        SavedModel(savedImage: "Stussy", savedTitle: "Stussy", savedPrice : "195,000원", savedInfo : "Basic Stussy Hoodie Ash Heather 2024"),
         SavedModel(savedImage: "image 8.png", savedTitle: "Adidas", savedPrice : "153,000원", savedInfo : "(W) Adidas SL 72 OG Maroon Almost Yellow"),
         SavedModel(savedImage: "image 9.png", savedTitle: "Mischief", savedPrice : "288,000원", savedInfo : "Mischief Rhombus Lightweight Track Jacket Brown"),
         SavedModel(savedImage: "image 10.png", savedTitle: "Honsby", savedPrice : "239,000원", savedInfo : "Honsby Opera Maple"),

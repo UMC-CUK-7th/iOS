@@ -15,9 +15,9 @@ class HomeViewController: UIViewController {
         view.homeCollectionView.dataSource = self // 데이터 바인딩
         view.productCollectionView.dataSource = self
         view.challengeCollectionView.dataSource = self
+        
         return view
     }()
-    
     
     
     override func loadView() {
@@ -61,28 +61,10 @@ class HomeViewController: UIViewController {
             homeView.centerImage.isHidden = false
             homeView.homeCollectionView.isHidden = false
             homeView.contentView.isHidden = false
-        case 1:
-            homeView.centerImage.isHidden = true
-            homeView.homeCollectionView.isHidden = true
-            homeView.contentView.isHidden = true
-        case 2:
-            homeView.centerImage.isHidden = true
-            homeView.homeCollectionView.isHidden = true
-            homeView.contentView.isHidden = true
-        case 3:
-            homeView.centerImage.isHidden = true
-            homeView.homeCollectionView.isHidden = true
-            homeView.contentView.isHidden = true
-        case 4:
-            homeView.centerImage.isHidden = true
-            homeView.homeCollectionView.isHidden = true
-            homeView.contentView.isHidden = true
-        case 5:
-            homeView.centerImage.isHidden = true
-            homeView.homeCollectionView.isHidden = true
-            homeView.contentView.isHidden = true
         default:
-            break
+            homeView.centerImage.isHidden = true
+            homeView.homeCollectionView.isHidden = true
+            homeView.contentView.isHidden = true
         }
     }
     
