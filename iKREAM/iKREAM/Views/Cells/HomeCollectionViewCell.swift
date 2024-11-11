@@ -9,6 +9,7 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     static let identifier = "HomeCollectionViewCell"
+    
     let imageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 10

@@ -1,4 +1,3 @@
-//
 //  HomeView.swift
 //  iKREAM
 //
@@ -10,6 +9,15 @@ import SnapKit
 import Then
 
 class HomeView: UIView {
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private let contentView = UIView()
+    
     let segmentedControl = UISegmentedControl(items: ["추천", "랭킹", "발매정보", "럭셔리", "남성", "여성"]).then {
         $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
         $0.setBackgroundImage(UIImage(), for: .selected, barMetrics: .default)
@@ -26,12 +34,12 @@ class HomeView: UIView {
         )
         $0.setTitleTextAttributes(
             [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
-            .font: UIFont.systemFont(ofSize: 15, weight: .bold)
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                .font: UIFont.systemFont(ofSize: 15, weight: .bold)
             ],
             for: .selected
-            )
-        }
+        )
+    }
     
     // 밑줄을 위한 뷰
     private let underLineView: UIView = {
@@ -42,14 +50,32 @@ class HomeView: UIView {
     }()
     
     let recommendCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
-            $0.scrollDirection = .vertical // 수직 방향 스크롤
-            $0.minimumInteritemSpacing = 9 // 좌우 간격 설정
-            $0.minimumLineSpacing = 20 // 위아래 간격 설정
-        }).then {
-            $0.backgroundColor = .clear
-            $0.isScrollEnabled = false
-            $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
-        }
+        $0.scrollDirection = .vertical // 수직 방향 스크롤
+        $0.minimumInteritemSpacing = 9 // 좌우 간격 설정
+        $0.minimumLineSpacing = 20 // 위아래 간격 설정
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
+        $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.identifier)
+    }
+    
+    let droppedCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal // 가로 방향 스크롤
+        $0.minimumInteritemSpacing = 8 // 좌우 간격
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true // 스크롤을 가능하도록 설정
+        $0.register(DroppedCollectionViewCell.self, forCellWithReuseIdentifier: DroppedCollectionViewCell.identifier)
+    }
+    
+    let winterCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.scrollDirection = .horizontal // 가로 방향 스크롤
+        $0.minimumInteritemSpacing = 8 // 좌우 간격
+    }).then {
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = true // 스크롤을 가능하도록 설정
+        $0.register(WinterCollectionViewCell.self, forCellWithReuseIdentifier: WinterCollectionViewCell.identifier)
+    }
     
     let emptyLable = UILabel().then {
         $0.font = .systemFont(ofSize: 13, weight: .medium)
@@ -64,7 +90,7 @@ class HomeView: UIView {
         bv.contentMode = .scaleAspectFill
         return bv
     }()
-
+    
     //MARK: UISegmentedControl
     let bellButton: UIButton = {
         let bll = UIButton()
@@ -94,35 +120,100 @@ class HomeView: UIView {
         return textField
     }()
     
+    let droppedLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 13, weight: .medium)
+        $0.textColor = .black
+        $0.text = "Just Dropped"
+        $0.textAlignment = .center
+        $0.isHidden = false // 필요에 따라 설정
+    }
+    
+    let releaseLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 13, weight: .light)
+        $0.textColor = .lightGray
+        $0.text = "발매 상품"
+        $0.textAlignment = .center
+        $0.isHidden = false // 필요에 따라 설정
+    }
+    
+    let winterLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 13, weight: .medium)
+        $0.textColor = .black
+        $0.text = "본격 한파대비! 연말 필수템 모음"
+        $0.textAlignment = .center
+        $0.isHidden = false // 필요에 따라 설정
+    }
+    
+    let challengeLabel = UILabel().then {
+        $0.font = .systemFont(ofSize: 13, weight: .light)
+        $0.textColor = .lightGray
+        $0.text = "#해피홀리룩챌린지"
+        $0.textAlignment = .center
+        $0.isHidden = false // 필요에 따라 설정
+    }
+    
     // MARK: - SetupUI
     private func setupUI() {
         self.backgroundColor = .white
-        self.addSubview(searchTextField)
-        self.addSubview(bellButton)
+        self.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
-        setupConstraints()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-        setupView()
-        setupSegmentedControlAction()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        [
+        // MARK: - addsubviews 일괄 추가 / UIView+ 파일 활용
+        contentView.addSubviews(
+            searchTextField,
+            bellButton,
             segmentedControl,
             underLineView,
             emptyLable,
             bannerImageView,
-            recommendCollectionView
-        ].forEach{
-            addSubview($0)
+            recommendCollectionView,
+            droppedLabel,
+            releaseLabel,
+            droppedCollectionView,
+            winterLabel,
+            challengeLabel,
+            winterCollectionView
+        )
+        
+        setupConstraints()
+        setupSegmentedControlAction()
+    }
+
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - SetupConstraints
+    private func setupConstraints() {
+        // ScrollView와 containerView 제약 설정
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalTo(scrollView.frameLayoutGuide)
+            make.bottom.equalTo(winterCollectionView.snp.bottom).offset(20)
+        }
+        
+        searchTextField.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.top.equalTo(contentView.snp.top).offset(6)
+            make.width.equalTo(303)
+            make.height.equalTo(40)
+        }
+        
+        bellButton.snp.makeConstraints { make in
+            make.leading.equalTo(searchTextField.snp.trailing).offset(16)
+            make.top.equalTo(contentView.snp.top).offset(6)
+            make.width.height.equalTo(24)
+            
         }
         segmentedControl.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(24)
@@ -153,6 +244,38 @@ class HomeView: UIView {
             make.width.equalTo(344)
             make.height.equalTo(182)
         }
+        droppedLabel.snp.makeConstraints { make in
+            make.top.equalTo(recommendCollectionView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().inset(16)
+
+        }
+        releaseLabel.snp.makeConstraints { make in
+            make.top.equalTo(droppedLabel.snp.bottom).offset(5)
+            make.leading.equalToSuperview().inset(16)
+            //make.bottom.equalToSuperview().offset(-20)
+        }
+        droppedCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(releaseLabel.snp.bottom).offset(14)
+            make.leading.equalToSuperview().inset(16)
+            make.width.equalTo(442)
+            make.height.equalTo(244)
+            //make.bottom.equalToSuperview().offset(-20)
+        }
+        winterLabel.snp.makeConstraints { make in
+            make.top.equalTo(droppedCollectionView.snp.bottom).offset(50)
+            make.leading.equalToSuperview().inset(16)
+        }
+        challengeLabel.snp.makeConstraints { make in
+            make.top.equalTo(winterLabel.snp.bottom).offset(5)
+            make.leading.equalToSuperview().inset(16)
+        }
+        winterCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(challengeLabel.snp.bottom).offset(14)
+            make.leading.equalToSuperview().inset(16)
+            make.width.equalTo(388)
+            make.height.equalTo(168)
+            make.bottom.equalToSuperview().offset(-20)
+        }
     }
     
     private func setupSegmentedControlAction() {
@@ -163,44 +286,38 @@ class HomeView: UIView {
     @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         let segmentWidth = segmentedControl.frame.width / CGFloat(segmentedControl.numberOfSegments)
         let leadingOffset = CGFloat(sender.selectedSegmentIndex) * segmentWidth
-        
+
+        // 밑줄 이동 애니메이션
         UIView.animate(withDuration: 0.3) {
             self.underLineView.snp.updateConstraints { make in
                 make.leading.equalTo(self.segmentedControl.snp.leading).offset(leadingOffset)
             }
             self.layoutIfNeeded()
         }
-        //각 세그먼트 별 눌렀을때
+
+        // 각 세그먼트에 따라 뷰 표시/숨기기 설정
         if sender.selectedSegmentIndex == 0 {
+            // 추천 세그먼트 선택 시, 모든 뷰 표시
             emptyLable.isHidden = true
             bannerImageView.isHidden = false
             recommendCollectionView.isHidden = false
+            droppedLabel.isHidden = false
+            releaseLabel.isHidden = false
+            droppedCollectionView.isHidden = false
+            winterLabel.isHidden = false
+            challengeLabel.isHidden = false
+            winterCollectionView.isHidden = false
         } else {
+            // 다른 세그먼트 선택 시, 추천 관련 뷰 숨기기
             emptyLable.isHidden = false
             bannerImageView.isHidden = true
             recommendCollectionView.isHidden = true
+            droppedLabel.isHidden = true
+            releaseLabel.isHidden = true
+            droppedCollectionView.isHidden = true
+            winterLabel.isHidden = true
+            challengeLabel.isHidden = true
+            winterCollectionView.isHidden = true
         }
     }
-    
-    
-    // MARK: - SetupConstraints
-    private func setupConstraints() {
-        searchTextField.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            make.width.equalTo(303)
-            make.height.equalTo(40)
-        }
-        
-        bellButton.snp.makeConstraints { make in
-            make.leading.equalTo(searchTextField.snp.trailing).offset(16)
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
-            make.width.height.equalTo(24)
-
-        }
-        
-    }
-
-
-
 }
