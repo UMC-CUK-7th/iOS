@@ -9,12 +9,13 @@ import Foundation
 import Security
 
 class KeychainService {
-    
+    // 싱글톤
     static let shared = KeychainService()
     
     // 생성자를 private으로 설정하여 외부에서 새로운 인스턴스를 생성하지 못하게 함
     private init() {}
     
+    //MARK: - saveKeychain
     // Keychain에 토큰을 저장하는 함수
     @discardableResult
     func save(token: String, account: String, service: String) -> OSStatus {
@@ -35,6 +36,7 @@ class KeychainService {
         return SecItemAdd(query as CFDictionary, nil)
     }
     
+    //MARK: - loadKeychain
     // Keychain에서 토큰을 불러오는 함수
     func load(account: String, service: String) -> String? {
         let query: [String: Any] = [
@@ -53,7 +55,6 @@ class KeychainService {
         if let data = item as? Data, let token = String(data: data, encoding: .utf8) {
             return token
         }
-        
         return nil
     }
 }
