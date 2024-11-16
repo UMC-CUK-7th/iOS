@@ -108,7 +108,9 @@ class MyPageView: UIView {
         super.init(frame: frame)
         
         setupUI()
+        //updateNickname()
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -191,4 +193,14 @@ class MyPageView: UIView {
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
+    
+   /* private func updateNickname() {
+        if let nickname = KeychainHelper.getKakaoNickname() {
+            idLabel.text = nickname // 키체인에서 가져온 닉네임으로 텍스트 설정
+        } else {
+            idLabel.text = "Dori_iOS" // 기본 값 설정
+        }
+    }*/ //현재 수정중인 부분이라 주석 삭제 안했습니다
+
+    
 }
