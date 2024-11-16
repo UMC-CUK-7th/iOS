@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
+import Combine
 class LoginViewController: UIViewController {
     lazy var kakaoAuthViewModel: KakaoAuthViewModel = {KakaoAuthViewModel()}()
+    var subscriptions = Set<AnyCancellable>()
     private let userDefaultsModel = UserDefaultsModel()
     let loginView = LoginView()
     var data : LoginModel = LoginModel(id:"", pwd: "")
@@ -21,7 +22,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.loginView.LoginButton.addTarget(self, action: #selector(buttondidTap),for: .touchUpInside)
         self.loginView.KakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonDidTap), for: .touchUpInside)
-
+        setBindings()
     }
     
     
@@ -38,12 +39,25 @@ class LoginViewController: UIViewController {
         
     }
    
+    
+    //MARK: - 카카오로그인
+    
     @objc
     private func kakaoLoginButtonDidTap(){
-        kakaoAuthViewModel.handleKakakoLogin()
+        kakaoAuthViewModel.kakaoLogin()
     }
     
+    
+    fileprivate func setBindings(){
+        self.kakaoAuthViewModel.$isLoggedIn.sink{ [weak self] isLoggedIn in
+            guard let self = self else { return }
+            if isLoggedIn == true {
+                let tabBarVC = TabBarController()
+                tabBarVC.modalPresentationStyle = .fullScreen
+                self.present(tabBarVC, animated: true, completion: nil)
+            }
+        }
+        .store(in: &subscriptions)
+    }
 }
-
-
 

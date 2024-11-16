@@ -187,17 +187,11 @@ class PurchaseButtonTapView: UIView {
     
     
     private func SetUpUI() {
-        addSubview(XButton)
         addSubviews(sizeSButton,sizeLButton,sizeMButton,sizeXLButton,sizeXXLButton)
         addSubview(imageView)
         addSubviews(productNameLabel,productSubNameLabel)
         addSubviews(dividedLine,fastDeliveryButton,generalDeliveryButton)
-        
-        XButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(20)
-            make.size.equalTo(20)
-            make.trailing.equalToSuperview().inset(16)
-        }
+      
         
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(61)

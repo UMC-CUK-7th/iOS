@@ -33,15 +33,22 @@ class PurchaseButtonTapViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //setProductImage()
-        
+        setupNavigationBar()
     }
     
     //MARK: - Function
+  
+    private func setupNavigationBar() {
+        if let XImage = UIImage(named: "XButton.png")?.withRenderingMode(.alwaysOriginal) { // 사진이 기본값에 영향을 받지않게끔 
+            let xBarButtonItem = UIBarButtonItem(image: XImage, style: .plain, target: self, action: #selector(XButtonActionDidTap))
+            self.navigationItem.rightBarButtonItem = xBarButtonItem
+        }
+    }
     
     // 모달뷰 해제
     @objc
     private func XButtonActionDidTap(){
-//        self.dismiss(animated: true)
+        self.dismiss(animated: true)
         print(#function)
     }
     

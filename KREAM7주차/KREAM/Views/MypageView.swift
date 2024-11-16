@@ -120,6 +120,7 @@ class MypageView: UIView {
     // 프로필 텍스트 label
     let profileNameLabel: UILabel = {
         let label = UILabel()
+        let nickname = KeychainTokenService.shared.loadToken(account: "nickname",service: "free_KREAM")
         label.text = "JM_iOS"
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular )
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -53,7 +53,9 @@ class JustDroppedDetailViewController: UIViewController {
     @objc private func purchaseButtonDidTap(){
         let button = PurchaseButtonTapViewController()
         button.modalPresentationStyle = .automatic
-        present(button, animated: true)
+        
+        let navVc = UINavigationController(rootViewController: button)
+        present(navVc,animated: true,completion: nil)
         
     }
     
