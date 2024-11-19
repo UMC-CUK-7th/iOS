@@ -27,7 +27,11 @@ class MyPageView: UIView {
     // 프로필 이름
     lazy var userName: UITextField = {
         let user = UITextField()
-        user.attributedPlaceholder = NSAttributedString(string: "Sesame_iOS", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]) //Placeholder색 변경
+        
+        // Keychain에서 불러온 닉네임을 placeholder로 설정
+        let service = Bundle.main.bundleIdentifier ?? "KakaoLoginService" 
+        let nickname = KeychainService.shared.load(account: "userNickname", service: service) // Keychain에서 저장된 닉네임을 불러옴
+        user.attributedPlaceholder = NSAttributedString(string: nickname ?? "Sesame_iOS", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]) //Placeholder색 변경
         user.font = .systemFont(ofSize: 16, weight: .regular)
         return user
     }()
