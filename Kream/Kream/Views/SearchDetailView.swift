@@ -1,15 +1,15 @@
 //
-//  SearchView.swift
+//  SearchDetailView.swift
 //  KREAM
 //
-//  Created by 류한비 on 10/23/24.
+//  Created by 류한비 on 11/19/24.
 //
 
 import UIKit
 import SnapKit
 import Then
 
-class SearchView: UIView {
+class SearchDetailView: UIView {
     
     // 검색 TextField
     let searchTextField: UITextField = {
@@ -46,6 +46,15 @@ class SearchView: UIView {
         return line
     }()
     
+    // 뒤로가기 버튼
+    let backButton: UIButton = {
+        let button = UIButton()
+        let backImage = UIImage(named: "backbutton")
+        button.setImage(backImage, for: .normal)
+        button.tintColor = .black
+        return button
+    }()
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         
@@ -62,6 +71,7 @@ class SearchView: UIView {
         self.addSubview(searchTextField)
         self.addSubview(cancleButton)
         self.addSubview(line)
+        self.addSubview(backButton)
         setupConstraints()
     }
     
@@ -70,9 +80,9 @@ class SearchView: UIView {
         // 검색 TextField
         searchTextField.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).offset(6)
-            $0.leading.equalToSuperview().offset(16)
+            $0.leading.equalTo(backButton.snp.trailing).offset(15)
             $0.trailing.equalToSuperview().offset(-55)
-            $0.width.equalTo(303)
+            $0.width.equalTo(268)
             $0.height.equalTo(40)
         }
         
@@ -89,6 +99,13 @@ class SearchView: UIView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
             $0.width.equalToSuperview()
+        }
+        
+        // 뒤로가기 버튼
+        backButton.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).offset(14)
+            $0.leading.equalToSuperview().offset(15)
+            $0.height.width.equalTo(24)
         }
     }
 }
