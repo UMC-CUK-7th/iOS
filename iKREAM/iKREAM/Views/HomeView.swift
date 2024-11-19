@@ -8,7 +8,7 @@ import UIKit
 import SnapKit
 import Then
 
-class HomeView: UIView {
+class HomeView: UIView, UITextFieldDelegate {
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = true
@@ -101,22 +101,25 @@ class HomeView: UIView {
     
     lazy var searchTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "브랜드,상품,프로필,태그 등" // 플레이스홀더 : 문구를 입력하기전에 보여주는 문구
+        textField.placeholder = "브랜드,상품,프로필,태그 등"
         textField.font = .systemFont(ofSize: 13, weight: .regular)
-        textField.layer.cornerRadius = 15 // 둥글게
-        //textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 15
         textField.layer.backgroundColor = UIColor.systemGray6.cgColor
-        textField.layer.masksToBounds = true // 콘텐츠가 레이어의 경게를 넘으면, 그 부분을 자를건지 묻는 여부 코드 (참)
-        let leftview = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16)) // 왼쪽에 공백 주는 코드
+        textField.layer.masksToBounds = true
+        let leftview = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
         textField.leftView = leftview
         textField.leftViewMode = .always
         
-        textField.autocapitalizationType = .none // 첫 글자 대문자 (자동) 끄는 코드
-        textField.autocorrectionType = .no // 추천글자 표시 끄는 코드
-        textField.spellCheckingType = .no // 오타글자 표시 끄는 코드
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
         textField.returnKeyType = .done
-        textField.clearsOnBeginEditing = false // 텍스트 필드 편집 시, 기존 값 제거 ( 기본이 false )
+        textField.clearsOnBeginEditing = false
         textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        // UITextFieldDelegate 설정
+        textField.delegate = self
+        
         return textField
     }()
     

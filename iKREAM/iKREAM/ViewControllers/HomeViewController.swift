@@ -5,11 +5,10 @@
 //  Created by 김윤진 on 10/21/24.
 //
 
-// HomeViewController.swift
 import UIKit
 import SnapKit
 
-class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     private let homeView = HomeView()
     
     // MARK: - Life Cycle
@@ -36,7 +35,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         )
     }
     
-    // searchTextField에 탭 제스처 추가
     private func setupSearchTextFieldTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchTextFieldTapped))
         homeView.searchTextField.addGestureRecognizer(tapGesture)
@@ -50,12 +48,24 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout {
         homeView.droppedCollectionView.delegate = self
         homeView.winterCollectionView.dataSource = self
         homeView.winterCollectionView.delegate = self
+        
+        // UITextField의 Delegate 설정
+        homeView.searchTextField.delegate = self
+    }
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // 텍스트 필드 편집 시작 시 호출됩니다.
+        // SearchViewController로 전환
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
     
     // searchTextField를 탭했을 때 호출되는 메서드
     @objc private func searchTextFieldTapped() {
-        let searchtextViewController = SearchTextViewController()
-        navigationController?.pushViewController(searchtextViewController, animated: true)
+        // SearchTextViewController로 전환
+        let searchTextViewController = SearchTextViewController()
+        navigationController?.pushViewController(searchTextViewController, animated: true)
     }
     
     @objc private func segmentedControlValueChanged(segment: UISegmentedControl) {
@@ -182,7 +192,6 @@ extension HomeCollectionViewCell {
     }
 }
 
-
 extension DroppedCollectionViewCell {
     func configure(with model: DroppedModel) {
         imageView.image = model.droppedImage
@@ -200,4 +209,4 @@ extension WinterCollectionViewCell {
         imageView.image = model.wintermodelImage
         idLabel.text = model.wintermodelName
     }
-} 
+}
