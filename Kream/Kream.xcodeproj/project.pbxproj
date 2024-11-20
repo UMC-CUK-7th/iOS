@@ -20,6 +20,10 @@
 		DB760E822CE2418B00EE670F /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E812CE2418B00EE670F /* KakaoSDKTemplate */; };
 		DB760E842CE2418B00EE670F /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E832CE2418B00EE670F /* KakaoSDKUser */; };
 		DBDEB8652CB3E8570014157F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DBDEB8642CB3E8570014157F /* SnapKit */; };
+		DBF4A0922CEDCBD200D30DC9 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0912CEDCBD200D30DC9 /* CombineMoya */; };
+		DBF4A0942CEDCBD200D30DC9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0932CEDCBD200D30DC9 /* Moya */; };
+		DBF4A0962CEDCBD200D30DC9 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0952CEDCBD200D30DC9 /* ReactiveMoya */; };
+		DBF4A0982CEDCBD200D30DC9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0972CEDCBD200D30DC9 /* RxMoya */; };
 		DBF4AC1E2CC7A3D400DE166C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */; };
 		DBF4AC212CC7ACF300DE166C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4AC202CC7ACF300DE166C /* Then */; };
 /* End PBXBuildFile section */
@@ -87,12 +91,16 @@
 				DBDEB8652CB3E8570014157F /* SnapKit in Frameworks */,
 				DB760E762CE2418B00EE670F /* KakaoSDKCommon in Frameworks */,
 				DB760E7A2CE2418B00EE670F /* KakaoSDKFriendCore in Frameworks */,
+				DBF4A0962CEDCBD200D30DC9 /* ReactiveMoya in Frameworks */,
 				DBF4AC212CC7ACF300DE166C /* Then in Frameworks */,
 				DB760E742CE2418B00EE670F /* KakaoSDKCertCore in Frameworks */,
+				DBF4A0982CEDCBD200D30DC9 /* RxMoya in Frameworks */,
 				DB760E7E2CE2418B00EE670F /* KakaoSDKShare in Frameworks */,
 				DB760E6E2CE2418B00EE670F /* KakaoSDK in Frameworks */,
 				DB760E702CE2418B00EE670F /* KakaoSDKAuth in Frameworks */,
+				DBF4A0922CEDCBD200D30DC9 /* CombineMoya in Frameworks */,
 				DB760E7C2CE2418B00EE670F /* KakaoSDKNavi in Frameworks */,
+				DBF4A0942CEDCBD200D30DC9 /* Moya in Frameworks */,
 				DB760E802CE2418B00EE670F /* KakaoSDKTalk in Frameworks */,
 				DB760E842CE2418B00EE670F /* KakaoSDKUser in Frameworks */,
 				DB760E722CE2418B00EE670F /* KakaoSDKCert in Frameworks */,
@@ -173,6 +181,10 @@
 				DB760E7F2CE2418B00EE670F /* KakaoSDKTalk */,
 				DB760E812CE2418B00EE670F /* KakaoSDKTemplate */,
 				DB760E832CE2418B00EE670F /* KakaoSDKUser */,
+				DBF4A0912CEDCBD200D30DC9 /* CombineMoya */,
+				DBF4A0932CEDCBD200D30DC9 /* Moya */,
+				DBF4A0952CEDCBD200D30DC9 /* ReactiveMoya */,
+				DBF4A0972CEDCBD200D30DC9 /* RxMoya */,
 			);
 			productName = KREAM;
 			productReference = DBDEB81C2CB3E4C70014157F /* KREAM.app */;
@@ -260,6 +272,7 @@
 				DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */,
 				DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DBDEB81D2CB3E4C70014157F /* Products */;
@@ -637,6 +650,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 		DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -712,6 +733,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DBF4A0912CEDCBD200D30DC9 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		DBF4A0932CEDCBD200D30DC9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		DBF4A0952CEDCBD200D30DC9 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		DBF4A0972CEDCBD200D30DC9 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 		DBF4AC202CC7ACF300DE166C /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

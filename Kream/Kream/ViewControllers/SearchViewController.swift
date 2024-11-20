@@ -8,7 +8,12 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    let searchView = SearchView()
+    
+    private lazy var searchView: SearchView = {
+        let view = SearchView()
+        view.searchCollectionView.dataSource = self //데이터 바인딩
+        return view
+    }()
     
     override func loadView() {
         self.view = searchView
@@ -33,7 +38,7 @@ class SearchViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    //MARK: - 텍스트필드 화면전화
+    //MARK: - 텍스트필드 화면전환
     
     // search 텍스트 필드 액션
     private func searchTextFieldAction() {
@@ -48,4 +53,23 @@ class SearchViewController: UIViewController {
         present(td, animated: true)
     }
     
+}
+
+// MARK: - UICollectionView DataSource
+extension SearchViewController: UICollectionViewDataSource{
+    
+    // numberOfItemsInSection
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return SearchModel.dummy().count
+    }
+    
+    // cellForItemAt
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchCollectionViewCell.identifier, for: indexPath) as? SearchCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        let list = SearchModel.dummy()
+        cell.searchLabel.text = list[indexPath.row].label
+        return cell
+    }
 }

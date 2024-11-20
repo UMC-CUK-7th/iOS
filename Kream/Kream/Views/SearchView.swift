@@ -46,6 +46,27 @@ class SearchView: UIView {
         return line
     }()
     
+    // 추천 검색어 UICollectionView
+    let searchCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout().then {
+        $0.estimatedItemSize = UICollectionViewFlowLayout.automaticSize // 크기 자동 조정
+        $0.minimumInteritemSpacing = 8 //셀 간의 최소 간격
+        $0.minimumLineSpacing = 12}).then{ //행간의 최소 간격
+            $0.backgroundColor = .clear
+            $0.isScrollEnabled = false
+            $0.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: SearchCollectionViewCell.identifier)
+        }
+    
+    // 추천 검색어 label
+    let reLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.text = "추천 검색어"
+        label.textColor = .black
+        label.textAlignment = .left
+        return label
+    }()
+    
+
     override init(frame: CGRect){
         super.init(frame: frame)
         
@@ -62,6 +83,8 @@ class SearchView: UIView {
         self.addSubview(searchTextField)
         self.addSubview(cancleButton)
         self.addSubview(line)
+        self.addSubview(searchCollectionView)
+        self.addSubview(reLabel)
         setupConstraints()
     }
     
@@ -89,6 +112,21 @@ class SearchView: UIView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
             $0.width.equalToSuperview()
+        }
+        
+        // 추천 검색어 UICollectionView
+        searchCollectionView.snp.makeConstraints{
+            $0.top.equalTo(searchTextField.snp.bottom).offset(70)
+            $0.leading.equalToSuperview().offset(15)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.height.equalTo(100)
+        }
+        
+        // 추천 검색어 label
+        reLabel.snp.makeConstraints{
+            $0.top.equalTo(searchTextField.snp.bottom).offset(41)
+            $0.leading.equalToSuperview().offset(16)
+            $0.height.equalTo(18)
         }
     }
 }
