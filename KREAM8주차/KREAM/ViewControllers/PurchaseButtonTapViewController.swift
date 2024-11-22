@@ -48,7 +48,7 @@ class PurchaseButtonTapViewController: UIViewController {
     // 모달뷰 해제
     @objc
     private func XButtonActionDidTap(){
-        self.dismiss(animated: true)
+        self.dismiss( animated: true)
         print(#function)
     }
     

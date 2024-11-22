@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     var data : LoginModel = LoginModel(id:"", pwd: "")
     
+    
+    //MARK: - LifeCycle
     override func loadView () {
         self.view = loginView
     }
@@ -25,7 +27,7 @@ class LoginViewController: UIViewController {
         setBindings()
     }
     
-    
+    //MARK: -Func
     @objc
     private func buttondidTap(){
         let VC = TabBarController()

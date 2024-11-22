@@ -58,17 +58,14 @@ class HomeView: UIView {
     }()
     
     
-    lazy var SearchTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "브랜드, 상품, 프로필, 태그 등"
-        textField.borderStyle = .none
-        textField.borderStyle = .roundedRect
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.layer.cornerRadius = 15
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        
-        return textField
+    let searchButton: UIButton = {
+        let button = UIButton()
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = .systemGray6
+        config.attributedTitle = AttributedString("브랜드,상품,프로필,태그 등", attributes: AttributeContainer([.foregroundColor: UIColor.gray, .font: UIFont.systemFont(ofSize: 13.5, weight: .bold) ]))
+        button.contentHorizontalAlignment = .leading 
+        button.configuration = config
+        return button
     }()
     
     
@@ -187,7 +184,7 @@ class HomeView: UIView {
     
     //MARK: - Constraints
     func SetUpUI() {
-        addSubview(SearchTextField)
+        addSubview(searchButton)
         addSubview(Zongimage)
         addSubview(scrollView)
         
@@ -201,7 +198,7 @@ class HomeView: UIView {
         }
         
       
-        SearchTextField.snp.makeConstraints { make in
+        searchButton.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).inset(6)
             make.leading.equalToSuperview().inset(16)
             make.trailing.equalTo(Zongimage.snp.leading).offset(-16)
@@ -210,7 +207,7 @@ class HomeView: UIView {
         
         // scrollView layout
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(SearchTextField.snp.bottom).offset(16)
+            make.top.equalTo(searchButton.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide)
         }
