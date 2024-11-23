@@ -13,11 +13,11 @@ class chucheonCollectionViewCell: UICollectionViewCell {
     static let identifier = "chucheonCollectionViewCell"
     
     let chuView = UIImageView().then {
-         $0.contentMode = .scaleAspectFill
-         $0.layer.cornerRadius = 20 // 경계 반경 설정
+        $0.contentMode = .scaleAspectFill
+        $0.layer.cornerRadius = 20 // 경계 반경 설정
         $0.backgroundColor = .systemGray6
-         $0.clipsToBounds = true
-     }
+        $0.clipsToBounds = true
+    }
     
     // 오른쪽 위 모서리 텍스트
     let supremeTextLabel = UILabel().then {
@@ -36,24 +36,19 @@ class chucheonCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - View Setup 
+    // MARK: - View Setup
     private func setupView() {
-        setupLabels()
-    }
-    
-    private func setupLabels() {
         addSubviews(chuView, supremeTextLabel)
         
         chuView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview()
-            make.leading.equalToSuperview().offset(15)
-            make.width.equalTo(123)
             make.height.equalTo(32)
         }
+        
         supremeTextLabel.snp.makeConstraints { make in
             make.top.equalTo(chuView.snp.top).offset(8)
             make.leading.equalTo(chuView.snp.leading).offset(11)
         }
     }
-    
+
 }
