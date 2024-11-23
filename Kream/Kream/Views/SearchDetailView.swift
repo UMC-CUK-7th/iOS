@@ -39,13 +39,6 @@ class SearchDetailView: UIView {
         return button
     }()
     
-    // 구분선
-    let line : UIView = {
-        let line = UIView()
-        line.backgroundColor = .systemGray6
-        return line
-    }()
-    
     // 뒤로가기 버튼
     let backButton: UIButton = {
         let button = UIButton()
@@ -53,6 +46,14 @@ class SearchDetailView: UIView {
         button.setImage(backImage, for: .normal)
         button.tintColor = .black
         return button
+    }()
+    
+    // 검색어 TableView
+    public lazy var searchTableView: UITableView = {
+        let table = UITableView()
+        table.register(SearchDetailTableViewCell.self, forCellReuseIdentifier: SearchDetailTableViewCell.identifier)
+        table.separatorStyle = .none // 구분선 제거
+        return table
     }()
     
     override init(frame: CGRect){
@@ -70,8 +71,8 @@ class SearchDetailView: UIView {
         self.backgroundColor = .white
         self.addSubview(searchTextField)
         self.addSubview(cancleButton)
-        self.addSubview(line)
         self.addSubview(backButton)
+        self.addSubview(searchTableView)
         setupConstraints()
     }
     
@@ -93,19 +94,18 @@ class SearchDetailView: UIView {
             $0.height.equalTo(17)
         }
         
-        // 구분선
-        line.snp.makeConstraints {
-            $0.top.equalTo(searchTextField.snp.bottom).offset(11)
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(1)
-            $0.width.equalToSuperview()
-        }
-        
         // 뒤로가기 버튼
         backButton.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).offset(14)
             $0.leading.equalToSuperview().offset(15)
             $0.height.width.equalTo(24)
+        }
+        
+        // 검색어 TableView
+        searchTableView.snp.makeConstraints {
+            $0.top.equalTo(searchTextField.snp.bottom).offset(16)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
         }
     }
 }
