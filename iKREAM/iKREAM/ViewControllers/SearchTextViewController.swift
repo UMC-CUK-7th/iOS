@@ -1,4 +1,12 @@
+//
+//  SearchTextViewController.swift
+//  iKREAM
+//
+//  Created by 김윤진 on 11/7/24.
+//
+
 import UIKit
+import SnapKit
 
 class SearchTextViewController: UIViewController, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
 
@@ -7,11 +15,7 @@ class SearchTextViewController: UIViewController, UICollectionViewDelegateFlowLa
     override func loadView() {
         self.view = searchtextView
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -19,32 +23,61 @@ class SearchTextViewController: UIViewController, UICollectionViewDelegateFlowLa
         setupDelegate()
         setupCollectionView() // 컬렉션 뷰 설정 추가
         setButtonActions()
+        setupSearchTextFieldTapGesture()
     }
-    
+
     // MARK: - Set Button Actions
     private func setButtonActions() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCancelLabel))
         searchtextView.cancleLabel.isUserInteractionEnabled = true
         searchtextView.cancleLabel.addGestureRecognizer(tapGesture)
     }
-    
+
     // MARK: - Selectors
     @objc
     private func didTapCancelLabel() {
-        // HomeViewController로 돌아갑니다.
+        // 이전 화면으로 돌아갑니다.
         dismiss(animated: true, completion: nil) // 모달 닫기
     }
     
+    private func setupSearchTextFieldTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(search2TextFieldTapped))
+        searchtextView.search2TextField.addGestureRecognizer(tapGesture)
+        searchtextView.search2TextField.isUserInteractionEnabled = true
+    }
+
+    @objc private func didTapSearchField() {
+        let deepSearchVC = DeepSearchViewController() // DeepSearchViewController 인스턴스 생성
+        navigationController?.pushViewController(deepSearchVC, animated: true) // Push 방식으로 이동
+    }
+
     private func setupCollectionView() {
         // 셀 등록
         searchtextView.chucheonCollectionView.register(chucheonCollectionViewCell.self, forCellWithReuseIdentifier: chucheonCollectionViewCell.identifier)
     }
-    
+
     private func setupDelegate() {
         searchtextView.chucheonCollectionView.delegate = self
         searchtextView.chucheonCollectionView.dataSource = self
+        
+        // UITextField의 Delegate 설정
+        searchtextView.search2TextField.delegate = self
     }
     
+    // MARK: - UITextFieldDelegate
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // 텍스트 필드 편집 시작 시 호출됩니다.
+        let searchtextViewController = SearchTextViewController()
+        navigationController?.pushViewController(searchtextViewController, animated: true)
+    }
+    
+    // deepsearchViewController를 탭했을 때 호출되는 메서드
+    @objc private func search2TextFieldTapped() {
+        let deepsearchViewController = DeepSearchViewController()
+        deepsearchViewController.modalPresentationStyle = .overFullScreen // 탭 바를 숨기지 않도록 설정
+        present(deepsearchViewController, animated: true, completion: nil)
+    }
+
     @objc private func segmentedControlValueChanged(segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
             searchtextView.chucheonCollectionView.isHidden = false
@@ -68,7 +101,7 @@ extension SearchTextViewController: UICollectionViewDataSource {
             guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: chucheonCollectionViewCell.identifier,
                 for: indexPath
-            ) as? chucheonCollectionViewCell else {  // 수정: 올바른 셀 클래스 이름으로 변경
+            ) as? chucheonCollectionViewCell else {
                 return UICollectionViewCell()
             }
             
@@ -101,7 +134,6 @@ extension SearchTextViewController {
     }
 }
 
-
 // MARK: - collectionView : Configure func
 extension chucheonCollectionViewCell {
     func configure(with model: ChucheonModel) {
@@ -109,5 +141,3 @@ extension chucheonCollectionViewCell {
         supremeTextLabel.text = model.keyName // model의 keyName을 텍스트로 설정
     }
 }
-
-
