@@ -36,16 +36,34 @@ class SearchDetailViewController: UIViewController {
     
     //MARK: - Func
     
-    //
+    private func setLeftNavi(){
+        let backButtonImage = UIImage(systemName: "arrow.left")
+        let leftBackButton = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(leftBackButtonDidTap))
+        self.navigationItem.leftBarButtonItem = leftBackButton
+        navigationController?.navigationBar.tintColor = .black
+        
+    }
+    
+    //오른쪽 버튼
     private func setupNavigationBar(){
+        
         let cancelButton = UIBarButtonItem(title: "취소",style: .plain, target: self, action: #selector(cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = cancelButton
+        navigationController?.navigationBar.tintColor = .black
+        setLeftNavi()
     }
     
     //homeview로 돌아가기
    @objc private func cancelButtonTapped() {
        navigationController?.popToRootViewController(animated: true)
     }
+    
+    @objc private func leftBackButtonDidTap(){
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
     //테이블 뷰 리셋
     private func updateUI(with responseDTO: ResponseDTO){
         searchDetailView.recommendWordTableView.reloadData()
@@ -64,22 +82,26 @@ class SearchDetailViewController: UIViewController {
             switch result {
             case.success(let response):
                 print("통신성공")
-                
+//                if let jsonString = String(data: response.data, encoding: .utf8) {
+//                    print("JSON 응답 데이터: \(jsonString)")
+//                }
+
                 do {
                     let decoder = JSONDecoder()
                     print("통신확인1")
                     let response = try decoder.decode(ResponseDTO.self, from: response.data)
                  //   print("통신확인2")
-                    self.recommendWord = response.products // 데이터 담기
-                    print("통신확인3")
+                    self.myResponse = response // 데이터 담기
+                 //   print("통신확인3")
                     DispatchQueue.main.async {
-                                          self.updateUI(with: response)
+                        self.updateUI(with: response)
                                       }
 //메인스레드에서 비동기적으로 진행하고, 테이블뷰 리로드함수 실행
                     
                 }
                 catch {
                     print("디코딩 실패")
+                    print(error)
                 }
             case.failure(let error):
                 print(error.localizedDescription)

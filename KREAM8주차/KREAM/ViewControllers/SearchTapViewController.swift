@@ -43,11 +43,11 @@ class SearchTapViewController: UIViewController {
         navigationItem.hidesBackButton = true
         let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = cancelButton
-        self.navigationController?.navigationBar.backgroundColor = .red
-        
-        
+        navigationController?.navigationBar.tintColor = .black
+
        }
        
+    
        @objc func cancelButtonTapped() {
            self.navigationController?.popViewController(animated: true)
            print(#function)

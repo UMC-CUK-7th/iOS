@@ -1,6 +1,12 @@
+
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
+//
+//   let sdsd = try? JSONDecoder().decode(Sdsd.self, from: jsonData)
+
 import Foundation
 
-// MARK: - Sdsd
+// MARK: - ResponseDTO
 struct ResponseDTO: Codable {
     let products: [Product]
     let total, skip, limit: Int

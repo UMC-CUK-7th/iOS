@@ -34,6 +34,7 @@ class SearchRecommendWordTableCell: UITableViewCell {
         label.font = .systemFont(ofSize: 14)
         label.textColor = .black
         label.textAlignment = .left
+
         return label
     }()
     

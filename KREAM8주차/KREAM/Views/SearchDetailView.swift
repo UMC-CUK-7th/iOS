@@ -31,8 +31,7 @@ class SearchDetailView: UIView {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-       tableView.register(SearchRecommendWordTableCell.self, forCellReuseIdentifier: SearchRecommendWordTableCell.identifier)
-        
+        tableView.register(SearchRecommendWordTableCell.self, forCellReuseIdentifier: SearchRecommendWordTableCell.identifier)
         return tableView
     }()
 
