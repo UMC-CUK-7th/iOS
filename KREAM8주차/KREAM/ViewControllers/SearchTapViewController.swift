@@ -17,6 +17,7 @@ class SearchTapViewController: UIViewController {
     
     override func loadView() {
         self.view = searchTapView
+        
             }
     
     override func viewDidLoad() {
@@ -24,6 +25,8 @@ class SearchTapViewController: UIViewController {
         searchTapView.recommendationCollectionView.dataSource = self
         searchTapView.recommendationCollectionView.delegate = self
         setupNavigationBar()
+        
+        self.searchTapView.searchButton.addTarget(self, action: #selector(searchbuttonTapped), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,23 +38,34 @@ class SearchTapViewController: UIViewController {
 
     //MARK: - Func
     private func setupNavigationBar() {
-           self.navigationController?.isNavigationBarHidden = false
+        
+        self.navigationController?.isNavigationBarHidden = false
         navigationItem.hidesBackButton = true
-            let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
-            
-            self.navigationItem.rightBarButtonItem = cancelButton
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        self.navigationItem.rightBarButtonItem = cancelButton
+        self.navigationController?.navigationBar.backgroundColor = .red
+        
+        
        }
        
-       @objc private func cancelButtonTapped() {
+       @objc func cancelButtonTapped() {
            self.navigationController?.popViewController(animated: true)
            print(#function)
        }
    
+    
+    @objc private func searchbuttonTapped() {
+        let VC = SearchDetailViewController()
+        self.navigationController?.pushViewController(VC, animated: true)
+        VC.view.backgroundColor = .white
+    }
 
     
     
 }
 
+
+//MARK: - Extension
 extension SearchTapViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendLabelCell", for: indexPath)as! RecommendLabelCell
@@ -85,3 +99,4 @@ extension SearchTapViewController: UICollectionViewDelegateFlowLayout{
         return 8
     }// 간격이 안맞으
 }
+
