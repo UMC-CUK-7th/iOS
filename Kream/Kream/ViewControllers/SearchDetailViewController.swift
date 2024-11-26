@@ -40,7 +40,6 @@ class SearchDetailViewController: UIViewController {
         cancelButtonAction()
         backButtonAction()
         searchDetailView.searchTextField.delegate = self // 텍스트 필드 delegate 설정
-//        getSearchData(with: "jordan") // 초기 데이터를 불러올 때 사용할 기본 검색어
     }
     
     //MARK: - 취소버튼
