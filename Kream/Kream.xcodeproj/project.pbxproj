@@ -1,0 +1,765 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DB760E6E2CE2418B00EE670F /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E6D2CE2418B00EE670F /* KakaoSDK */; };
+		DB760E702CE2418B00EE670F /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E6F2CE2418B00EE670F /* KakaoSDKAuth */; };
+		DB760E722CE2418B00EE670F /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E712CE2418B00EE670F /* KakaoSDKCert */; };
+		DB760E742CE2418B00EE670F /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E732CE2418B00EE670F /* KakaoSDKCertCore */; };
+		DB760E762CE2418B00EE670F /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E752CE2418B00EE670F /* KakaoSDKCommon */; };
+		DB760E782CE2418B00EE670F /* KakaoSDKFriend in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E772CE2418B00EE670F /* KakaoSDKFriend */; };
+		DB760E7A2CE2418B00EE670F /* KakaoSDKFriendCore in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E792CE2418B00EE670F /* KakaoSDKFriendCore */; };
+		DB760E7C2CE2418B00EE670F /* KakaoSDKNavi in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E7B2CE2418B00EE670F /* KakaoSDKNavi */; };
+		DB760E7E2CE2418B00EE670F /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E7D2CE2418B00EE670F /* KakaoSDKShare */; };
+		DB760E802CE2418B00EE670F /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E7F2CE2418B00EE670F /* KakaoSDKTalk */; };
+		DB760E822CE2418B00EE670F /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E812CE2418B00EE670F /* KakaoSDKTemplate */; };
+		DB760E842CE2418B00EE670F /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = DB760E832CE2418B00EE670F /* KakaoSDKUser */; };
+		DBDEB8652CB3E8570014157F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DBDEB8642CB3E8570014157F /* SnapKit */; };
+		DBF4A0922CEDCBD200D30DC9 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0912CEDCBD200D30DC9 /* CombineMoya */; };
+		DBF4A0942CEDCBD200D30DC9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0932CEDCBD200D30DC9 /* Moya */; };
+		DBF4A0962CEDCBD200D30DC9 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0952CEDCBD200D30DC9 /* ReactiveMoya */; };
+		DBF4A0982CEDCBD200D30DC9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4A0972CEDCBD200D30DC9 /* RxMoya */; };
+		DBF4AC1E2CC7A3D400DE166C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */; };
+		DBF4AC212CC7ACF300DE166C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DBF4AC202CC7ACF300DE166C /* Then */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DBDEB8332CB3E4C90014157F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBDEB8142CB3E4C70014157F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBDEB81B2CB3E4C70014157F;
+			remoteInfo = KREAM;
+		};
+		DBDEB83D2CB3E4C90014157F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBDEB8142CB3E4C70014157F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBDEB81B2CB3E4C70014157F;
+			remoteInfo = KREAM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DBDEB81C2CB3E4C70014157F /* KREAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KREAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDEB8322CB3E4C90014157F /* KREAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KREAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBDEB83C2CB3E4C90014157F /* KREAMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KREAMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DBDEB8442CB3E4C90014157F /* Exceptions for "KREAM" folder in "KREAM" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DBDEB81B2CB3E4C70014157F /* KREAM */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		DBDEB81E2CB3E4C70014157F /* KREAM */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DBDEB8442CB3E4C90014157F /* Exceptions for "KREAM" folder in "KREAM" target */,
+			);
+			path = KREAM;
+			sourceTree = "<group>";
+		};
+		DBDEB8352CB3E4C90014157F /* KREAMTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KREAMTests;
+			sourceTree = "<group>";
+		};
+		DBDEB83F2CB3E4C90014157F /* KREAMUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = KREAMUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DBDEB8192CB3E4C70014157F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBDEB8652CB3E8570014157F /* SnapKit in Frameworks */,
+				DB760E762CE2418B00EE670F /* KakaoSDKCommon in Frameworks */,
+				DB760E7A2CE2418B00EE670F /* KakaoSDKFriendCore in Frameworks */,
+				DBF4A0962CEDCBD200D30DC9 /* ReactiveMoya in Frameworks */,
+				DBF4AC212CC7ACF300DE166C /* Then in Frameworks */,
+				DB760E742CE2418B00EE670F /* KakaoSDKCertCore in Frameworks */,
+				DBF4A0982CEDCBD200D30DC9 /* RxMoya in Frameworks */,
+				DB760E7E2CE2418B00EE670F /* KakaoSDKShare in Frameworks */,
+				DB760E6E2CE2418B00EE670F /* KakaoSDK in Frameworks */,
+				DB760E702CE2418B00EE670F /* KakaoSDKAuth in Frameworks */,
+				DBF4A0922CEDCBD200D30DC9 /* CombineMoya in Frameworks */,
+				DB760E7C2CE2418B00EE670F /* KakaoSDKNavi in Frameworks */,
+				DBF4A0942CEDCBD200D30DC9 /* Moya in Frameworks */,
+				DB760E802CE2418B00EE670F /* KakaoSDKTalk in Frameworks */,
+				DB760E842CE2418B00EE670F /* KakaoSDKUser in Frameworks */,
+				DB760E722CE2418B00EE670F /* KakaoSDKCert in Frameworks */,
+				DB760E822CE2418B00EE670F /* KakaoSDKTemplate in Frameworks */,
+				DB760E782CE2418B00EE670F /* KakaoSDKFriend in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDEB82F2CB3E4C90014157F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDEB8392CB3E4C90014157F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DBDEB8132CB3E4C70014157F = {
+			isa = PBXGroup;
+			children = (
+				DBF4AC1D2CC7A3D400DE166C /* Assets.xcassets */,
+				DBDEB81E2CB3E4C70014157F /* KREAM */,
+				DBDEB8352CB3E4C90014157F /* KREAMTests */,
+				DBDEB83F2CB3E4C90014157F /* KREAMUITests */,
+				DBDEB81D2CB3E4C70014157F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DBDEB81D2CB3E4C70014157F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DBDEB81C2CB3E4C70014157F /* KREAM.app */,
+				DBDEB8322CB3E4C90014157F /* KREAMTests.xctest */,
+				DBDEB83C2CB3E4C90014157F /* KREAMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DBDEB81B2CB3E4C70014157F /* KREAM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBDEB8452CB3E4C90014157F /* Build configuration list for PBXNativeTarget "KREAM" */;
+			buildPhases = (
+				DBDEB8182CB3E4C70014157F /* Sources */,
+				DBDEB8192CB3E4C70014157F /* Frameworks */,
+				DBDEB81A2CB3E4C70014157F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DBDEB81E2CB3E4C70014157F /* KREAM */,
+			);
+			name = KREAM;
+			packageProductDependencies = (
+				DBDEB8642CB3E8570014157F /* SnapKit */,
+				DBF4AC202CC7ACF300DE166C /* Then */,
+				DB760E6D2CE2418B00EE670F /* KakaoSDK */,
+				DB760E6F2CE2418B00EE670F /* KakaoSDKAuth */,
+				DB760E712CE2418B00EE670F /* KakaoSDKCert */,
+				DB760E732CE2418B00EE670F /* KakaoSDKCertCore */,
+				DB760E752CE2418B00EE670F /* KakaoSDKCommon */,
+				DB760E772CE2418B00EE670F /* KakaoSDKFriend */,
+				DB760E792CE2418B00EE670F /* KakaoSDKFriendCore */,
+				DB760E7B2CE2418B00EE670F /* KakaoSDKNavi */,
+				DB760E7D2CE2418B00EE670F /* KakaoSDKShare */,
+				DB760E7F2CE2418B00EE670F /* KakaoSDKTalk */,
+				DB760E812CE2418B00EE670F /* KakaoSDKTemplate */,
+				DB760E832CE2418B00EE670F /* KakaoSDKUser */,
+				DBF4A0912CEDCBD200D30DC9 /* CombineMoya */,
+				DBF4A0932CEDCBD200D30DC9 /* Moya */,
+				DBF4A0952CEDCBD200D30DC9 /* ReactiveMoya */,
+				DBF4A0972CEDCBD200D30DC9 /* RxMoya */,
+			);
+			productName = KREAM;
+			productReference = DBDEB81C2CB3E4C70014157F /* KREAM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBDEB8312CB3E4C90014157F /* KREAMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBDEB84A2CB3E4C90014157F /* Build configuration list for PBXNativeTarget "KREAMTests" */;
+			buildPhases = (
+				DBDEB82E2CB3E4C90014157F /* Sources */,
+				DBDEB82F2CB3E4C90014157F /* Frameworks */,
+				DBDEB8302CB3E4C90014157F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBDEB8342CB3E4C90014157F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DBDEB8352CB3E4C90014157F /* KREAMTests */,
+			);
+			name = KREAMTests;
+			packageProductDependencies = (
+			);
+			productName = KREAMTests;
+			productReference = DBDEB8322CB3E4C90014157F /* KREAMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DBDEB83B2CB3E4C90014157F /* KREAMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DBDEB84D2CB3E4C90014157F /* Build configuration list for PBXNativeTarget "KREAMUITests" */;
+			buildPhases = (
+				DBDEB8382CB3E4C90014157F /* Sources */,
+				DBDEB8392CB3E4C90014157F /* Frameworks */,
+				DBDEB83A2CB3E4C90014157F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DBDEB83E2CB3E4C90014157F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				DBDEB83F2CB3E4C90014157F /* KREAMUITests */,
+			);
+			name = KREAMUITests;
+			packageProductDependencies = (
+			);
+			productName = KREAMUITests;
+			productReference = DBDEB83C2CB3E4C90014157F /* KREAMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DBDEB8142CB3E4C70014157F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					DBDEB81B2CB3E4C70014157F = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					DBDEB8312CB3E4C90014157F = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = DBDEB81B2CB3E4C70014157F;
+					};
+					DBDEB83B2CB3E4C90014157F = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = DBDEB81B2CB3E4C70014157F;
+					};
+				};
+			};
+			buildConfigurationList = DBDEB8172CB3E4C70014157F /* Build configuration list for PBXProject "KREAM" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DBDEB8132CB3E4C70014157F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */,
+				DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DBDEB81D2CB3E4C70014157F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DBDEB81B2CB3E4C70014157F /* KREAM */,
+				DBDEB8312CB3E4C90014157F /* KREAMTests */,
+				DBDEB83B2CB3E4C90014157F /* KREAMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DBDEB81A2CB3E4C70014157F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBF4AC1E2CC7A3D400DE166C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDEB8302CB3E4C90014157F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDEB83A2CB3E4C90014157F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DBDEB8182CB3E4C70014157F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDEB82E2CB3E4C90014157F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBDEB8382CB3E4C90014157F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DBDEB8342CB3E4C90014157F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBDEB81B2CB3E4C70014157F /* KREAM */;
+			targetProxy = DBDEB8332CB3E4C90014157F /* PBXContainerItemProxy */;
+		};
+		DBDEB83E2CB3E4C90014157F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBDEB81B2CB3E4C70014157F /* KREAM */;
+			targetProxy = DBDEB83D2CB3E4C90014157F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DBDEB8462CB3E4C90014157F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = DBDEB81E2CB3E4C70014157F /* KREAM */;
+			baseConfigurationReferenceRelativePath = ConfigKakao.xcconfig;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesame.KREAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DBDEB8472CB3E4C90014157F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KREAM/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesame.KREAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DBDEB8482CB3E4C90014157F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = DBDEB81E2CB3E4C70014157F /* KREAM */;
+			baseConfigurationReferenceRelativePath = ConfigKakao.xcconfig;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DBDEB8492CB3E4C90014157F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DBDEB84B2CB3E4C90014157F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesame.KREAMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KREAM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KREAM";
+			};
+			name = Debug;
+		};
+		DBDEB84C2CB3E4C90014157F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesame.KREAMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KREAM.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KREAM";
+			};
+			name = Release;
+		};
+		DBDEB84E2CB3E4C90014157F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesame.KREAMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KREAM;
+			};
+			name = Debug;
+		};
+		DBDEB84F2CB3E4C90014157F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sesame.KREAMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KREAM;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DBDEB8172CB3E4C70014157F /* Build configuration list for PBXProject "KREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDEB8482CB3E4C90014157F /* Debug */,
+				DBDEB8492CB3E4C90014157F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBDEB8452CB3E4C90014157F /* Build configuration list for PBXNativeTarget "KREAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDEB8462CB3E4C90014157F /* Debug */,
+				DBDEB8472CB3E4C90014157F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBDEB84A2CB3E4C90014157F /* Build configuration list for PBXNativeTarget "KREAMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDEB84B2CB3E4C90014157F /* Debug */,
+				DBDEB84C2CB3E4C90014157F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DBDEB84D2CB3E4C90014157F /* Build configuration list for PBXNativeTarget "KREAMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DBDEB84E2CB3E4C90014157F /* Debug */,
+				DBDEB84F2CB3E4C90014157F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.23.0;
+			};
+		};
+		DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB760E6D2CE2418B00EE670F /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		DB760E6F2CE2418B00EE670F /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		DB760E712CE2418B00EE670F /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		DB760E732CE2418B00EE670F /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		DB760E752CE2418B00EE670F /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		DB760E772CE2418B00EE670F /* KakaoSDKFriend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKFriend;
+		};
+		DB760E792CE2418B00EE670F /* KakaoSDKFriendCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKFriendCore;
+		};
+		DB760E7B2CE2418B00EE670F /* KakaoSDKNavi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKNavi;
+		};
+		DB760E7D2CE2418B00EE670F /* KakaoSDKShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKShare;
+		};
+		DB760E7F2CE2418B00EE670F /* KakaoSDKTalk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTalk;
+		};
+		DB760E812CE2418B00EE670F /* KakaoSDKTemplate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKTemplate;
+		};
+		DB760E832CE2418B00EE670F /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB760E6C2CE2418B00EE670F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+		DBDEB8642CB3E8570014157F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBDEB8632CB3E8570014157F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		DBF4A0912CEDCBD200D30DC9 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		DBF4A0932CEDCBD200D30DC9 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		DBF4A0952CEDCBD200D30DC9 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		DBF4A0972CEDCBD200D30DC9 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4A0902CEDCBD200D30DC9 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		DBF4AC202CC7ACF300DE166C /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBF4AC1F2CC7ACF300DE166C /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DBDEB8142CB3E4C70014157F /* Project object */;
+}

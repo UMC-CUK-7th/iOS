@@ -1,0 +1,11 @@
+//
+//  ConfigKakao.xcconfig
+//  KREAM
+//
+//  Created by 류한비 on 11/11/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+KAKAO_NATIVE_APP_KEY = 6a12fc039a0912272aeb99ea8675354c
