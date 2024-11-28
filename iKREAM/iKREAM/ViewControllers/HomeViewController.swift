@@ -63,11 +63,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     
     // searchTextField를 탭했을 때 호출되는 메서드
     @objc private func searchTextFieldTapped() {
-        // SearchTextViewController로 전환
         let searchTextViewController = SearchTextViewController()
-        navigationController?.pushViewController(searchTextViewController, animated: true)
+        searchTextViewController.modalPresentationStyle = .overFullScreen // 탭 바를 숨기지 않도록 설정
+        present(searchTextViewController, animated: true, completion: nil)
     }
-    
+
+
     @objc private func segmentedControlValueChanged(segment: UISegmentedControl) {
         if segment.selectedSegmentIndex == 0 {
             homeView.recommendCollectionView.isHidden = false
