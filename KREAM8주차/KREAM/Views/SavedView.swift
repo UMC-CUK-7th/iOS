@@ -18,7 +18,7 @@ class SavedView: UIView {
         return label
     }()
     
-    //headerview를 따로 만드는 상황은 언제인지?
+   
     let CountLabel: UILabel = {
         let label = UILabel()
         label.text = "전체 10개"

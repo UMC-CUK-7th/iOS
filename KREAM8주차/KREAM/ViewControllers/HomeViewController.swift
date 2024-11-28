@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     //MARK: -Properties
     private let homeView = HomeView()
     private let homeJustDroppedCell = HomeJustDroppedCell()
-   
+    
     
     //MARK: - LifeCycle
     override func loadView() {
@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setUpAction()
         setUpDelegate()
+        setSearchButtonDidTap()
     }
     
 
@@ -75,7 +76,15 @@ class HomeViewController: UIViewController {
         }
     }
     
-
+    private func setSearchButtonDidTap(){
+        homeView.searchButton.addTarget(self, action: #selector(SearchButtonDidTap), for: .touchUpInside)
+    }
+    
+    @objc
+    private func SearchButtonDidTap(){
+        let vc = SearchTapViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     
         
