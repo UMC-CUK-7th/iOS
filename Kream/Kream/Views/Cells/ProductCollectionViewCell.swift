@@ -82,6 +82,17 @@ class ProductCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - configure
+    func configure(with model: ProductModel) {
+        if let url = URL(string: model.image) {
+            productImage.kf.setImage(with: url) // Kingfisher로 이미지 로드
+        }
+        titleLabel.text = model.name
+        infoLabel.text = model.info
+        priceLabel.text = model.price
+        countLabel.text = model.label
+    }
+    
     //MARK: - setupUI
     private func setupUI(){
         addSubview(productImage)

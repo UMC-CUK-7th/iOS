@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
 class ChallengeCollectionViewCell: UICollectionViewCell {
     static let identifier = "ChallengeCollectionViewCell"
@@ -38,6 +39,14 @@ class ChallengeCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - configure
+    func configure(with model: ChallengeModel) {
+        if let url = URL(string: model.image) {
+            productImage.kf.setImage(with: url) // Kingfisher로 이미지 로드
+        }
+        titleLabel.text = model.name
     }
     
     //MARK: - setupUI

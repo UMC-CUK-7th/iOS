@@ -110,11 +110,7 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let list = ProductModel.dummy()
-            cell.productImage.image = list[indexPath.row].image
-            cell.titleLabel.text = list[indexPath.row].name
-            cell.infoLabel.text = list[indexPath.row].info
-            cell.priceLabel.text = list[indexPath.row].price
-            cell.countLabel.text = list[indexPath.row].label
+            cell.configure(with: list[indexPath.row])
             return cell
             
         // challengeCollectionView
@@ -126,16 +122,10 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
             let list = ChallengeModel.dummy()
-            cell.productImage.image = list[indexPath.row].image
-            cell.titleLabel.text = list[indexPath.row].name
+            cell.configure(with: list[indexPath.row]) // configure를 통해 데이터 바인딩
             return cell
         }
         
         return UICollectionViewCell()
     }
 }
-
-
-//#Preview {
-//    HomeViewController()
-//}
