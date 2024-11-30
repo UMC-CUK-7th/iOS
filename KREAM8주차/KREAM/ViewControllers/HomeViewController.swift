@@ -125,7 +125,7 @@ extension HomeViewController : UICollectionViewDataSource{
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeJustDroppedCell.identifier, for: indexPath) as? HomeJustDroppedCell else{ return UICollectionViewCell()}
             
                 let list2 = HomeJustDroppedModel.HomeJustDroppedDummy()
-            cell.imageView.image=list2[indexPath.row].image
+            cell.imageView.kf.setImage(with: list2[indexPath.row].imageURL)
             cell.titleLabel.text = list2[indexPath.row].title
             cell.subTitleLabel.text = list2[indexPath.row].subtitle
             cell.priceLabel.text = list2[indexPath.row].price

@@ -6,7 +6,7 @@
 //
 import SnapKit
 import UIKit
-
+import Kingfisher
 //MARK: - protocol
 protocol CollectionViewCellDelegate: AnyObject {
     func didTapButton(in cell: HomeJustDroppedCell)
@@ -22,10 +22,13 @@ class HomeJustDroppedCell: UICollectionViewCell {
     
 //MARK: -UIComponents
     let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
+        let imageview = UIImageView()
+        imageview.contentMode = .scaleAspectFill
+        imageview.clipsToBounds = true
+        imageview.translatesAutoresizingMaskIntoConstraints = false
+        let url = URL(string: "")
+        imageview.kf.setImage(with:url)
+        return imageview
     }()
     
     let button: UIButton = {
